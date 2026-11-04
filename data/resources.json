@@ -1,0 +1,1035 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-05",
+  "verification_date": "2026-11-05",
+  "method": "Read-only review of each project's README and, where noted, source files. No project was cloned, installed, or executed; no model weights were downloaded.",
+  "entries": [
+    {
+      "id": "vasa",
+      "name": "VASA",
+      "url": "https://github.com/Wayne2Wang/VASA",
+      "repo": "Wayne2Wang/VASA",
+      "category": "Agents & Applications",
+      "description_en": "Training-free vision-harnessing agent for open ad-hoc segmentation: a VLM coordinates SAM 3 through planning, mask editing, scrutiny and error recovery while keeping one working mask persistent, inspectable and editable, and each run saves a trace viewer plus the tool-call history.",
+      "description_zh": "免训练的视觉编排 Agent，用 VLM 协调 SAM 3 完成开放式即席分割：规划、掩码编辑、审视与错误恢复围绕一张可持续检查、可编辑的工作掩码展开，每次运行都保存 trace 查看器和工具调用历史。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/Wayne2Wang/VASA",
+        "https://github.com/Wayne2Wang/VASA/blob/main/src/engine/agent_core.py",
+        "https://arxiv.org/abs/2605.19410"
+      ],
+      "notes": "Depends on SAM 3 weights that require Hugging Face access; README says the code is MIT except SAM 3-derived components."
+    },
+    {
+      "id": "medsam-agent",
+      "name": "MedSAM-Agent",
+      "url": "https://github.com/CUHK-AIM-Group/MedSAM-Agent",
+      "repo": "CUHK-AIM-Group/MedSAM-Agent",
+      "category": "Agents & Applications",
+      "description_en": "Qwen3-VL agent trained with multi-turn reinforcement learning to choose positive/negative points, boxes or an early stop for a medical segmenter (MedSAM2, SAM 2.1 or IMISNet), with single-image and batch inference scripts plus an RL training recipe.",
+      "description_zh": "用多轮强化学习训练的 Qwen3-VL Agent，为医学分割器（MedSAM2、SAM 2.1 或 IMISNet）选择正负点、边界框或提前停止，仓库提供单图与批量推理脚本以及 RL 训练配方。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Points",
+          "Boxes"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs+code",
+      "evidence": [
+        "https://github.com/CUHK-AIM-Group/MedSAM-Agent",
+        "https://github.com/CUHK-AIM-Group/MedSAM-Agent/blob/main/infer/unibiomed_inference_toolusing.py",
+        "https://arxiv.org/abs/2602.03320"
+      ],
+      "notes": "README TODO still lists the SFT/RL datasets and the trajectory-generation code as unreleased; no root LICENSE file was found, while the Hugging Face model card is Apache-2.0."
+    },
+    {
+      "id": "medsegagent",
+      "name": "MedSegAgent",
+      "url": "https://github.com/uni-medical/MedSegAgent",
+      "repo": "uni-medical/MedSegAgent",
+      "category": "Agents & Applications",
+      "description_en": "Multi-agent AutoGen pipeline that maps a free-text medical segmentation request to dataset-specific nnU-Net models and label IDs through coarse-to-fine query filtering; a TotalSegAgent branch adds a runnable CT/MR segmentation service and web viewer.",
+      "description_zh": "基于 AutoGen 的多智能体流水线，用由粗到细的查询过滤把自由文本的医学分割请求映射到具体数据集的 nnU-Net 模型与标签 ID；TotalSegAgent 分支另外提供可运行的 CT/MR 分割服务与网页查看器。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs+code",
+      "evidence": [
+        "https://github.com/uni-medical/MedSegAgent",
+        "https://github.com/uni-medical/MedSegAgent/blob/main/agents/c2f_tree_search.py",
+        "https://github.com/uni-medical/MedSegAgent/blob/main/evaluate.py"
+      ],
+      "notes": "The agent selects models and labels rather than performing segmentation itself; evaluation script reports dataset hit rate, not Dice."
+    },
+    {
+      "id": "segagent",
+      "name": "SegAgent",
+      "url": "https://github.com/aim-uofa/SegAgent",
+      "repo": "aim-uofa/SegAgent",
+      "category": "Agents & Applications",
+      "description_en": "MLLM trained to imitate human annotator trajectories: it issues a sequence of interactions to an interactive segmentor to build and refine a mask over several steps, and the weights, inference code and HLMAT trajectory dataset are released.",
+      "description_zh": "模仿人类标注轨迹训练的 MLLM：它向交互式分割器发出一系列交互动作，用多步构建并修整掩码；模型权重、推理代码与 HLMAT 轨迹数据集均已发布。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text",
+          "Interactive"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Maintained",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/aim-uofa/SegAgent",
+        "https://github.com/aim-uofa/SegAgent/blob/main/evaltools/run_eval.sh",
+        "https://arxiv.org/abs/2503.08625"
+      ],
+      "notes": "Inference is wired to SimpleClick as the interactive segmentor; README states a 2-clause BSD licence for academic use while GitHub reports MIT."
+    },
+    {
+      "id": "voxelsage",
+      "name": "VoxelSage",
+      "url": "https://github.com/ZJUMAI/VoxelSage",
+      "repo": "ZJUMAI/VoxelSage",
+      "category": "Agents & Applications",
+      "description_en": "Self-hosted abdominal CT workspace where a natural-language agent drives imaging skills — segmentation through VISTA3D or TotalSegmentator, quantitative measurements, key-slice selection and interactive 3D reconstruction — behind a web UI and a documented Skills API.",
+      "description_zh": "自托管的腹部 CT 工作台：自然语言 Agent 通过技能接口驱动分割（VISTA3D 或 TotalSegmentator）、定量测量、关键层面选择与交互式 3D 重建，并提供 Web 界面与 Skills API。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text",
+          "Interactive"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/ZJUMAI/VoxelSage",
+        "https://arxiv.org/abs/2609.37648"
+      ],
+      "notes": "README explicitly says it is experimental research software and not a medical device."
+    },
+    {
+      "id": "gencellagent",
+      "name": "GenCellAgent",
+      "url": "https://github.com/yuxi120407/GenCELLAgent",
+      "repo": "yuxi120407/GenCELLAgent",
+      "category": "Agents & Applications",
+      "description_en": "Training-free multi-agent system for cellular microscopy that routes each image to specialist or generalist segmenters (Cellpose, µSAM, ERNet, MitoNet, LISA, SegGPT) in a plan–execute–evaluate loop, with VLM-based quality scoring, human corrections and remembered configurations.",
+      "description_zh": "面向细胞显微图像的免训练多智能体系统：按图像在 Cellpose、µSAM、ERNet、MitoNet、LISA、SegGPT 等专用或通用分割器之间路由，采用 plan–execute–evaluate 循环，并带 VLM 质量评分、人工修正与配置记忆。",
+      "tags": {
+        "domain": [
+          "Microscopy"
+        ],
+        "prompt": [
+          "Text",
+          "Interactive"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/yuxi120407/GenCELLAgent"
+      ],
+      "notes": "Performance figures in the README are the authors' reported numbers and were not reproduced here."
+    },
+    {
+      "id": "ask-to-mask",
+      "name": "ask-to-mask",
+      "url": "https://github.com/janelia-cellmap/ask-to-mask",
+      "repo": "janelia-cellmap/ask-to-mask",
+      "category": "Agents & Applications",
+      "description_en": "Electron-microscopy organelle segmentation with an agentic refinement loop: a vision-language model writes the prompt, a generator draws the mask, and a VLM critic drives further iterations; SAM 3 point prompts and majority voting over orthogonal planes produce 3D masks.",
+      "description_zh": "电子显微镜细胞器分割，带 Agent 式精修闭环：视觉语言模型写提示词、生成器出掩码、VLM 评审再迭代；配合 SAM 3 点提示与正交平面多数投票得到 3D 掩码。",
+      "tags": {
+        "domain": [
+          "Microscopy"
+        ],
+        "prompt": [
+          "Text",
+          "Points"
+        ],
+        "dim": [
+          "2D",
+          "3D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/janelia-cellmap/ask-to-mask"
+      ],
+      "notes": "The README distinguishes the critic's self-estimated score from any ground-truth accuracy."
+    },
+    {
+      "id": "farmseeker",
+      "name": "FarmSeeker",
+      "url": "https://github.com/WithoutOcean/FarmSeeker",
+      "repo": "WithoutOcean/FarmSeeker",
+      "category": "Agents & Applications",
+      "description_en": "Remote-sensing farmland segmentation agent that detects ambiguous regions, retrieves extra spatio-temporal imagery, reasons across dates and refines the mask with SAM 2.1; the accompanying GSFS-Bench is described as a global-scale farmland segmentation benchmark that supports reasoning–querying.",
+      "description_zh": "遥感耕地分割 Agent：先找出含糊区域，再检索额外的时空影像、跨时相推理，并用 SAM 2.1 精修掩码；配套的 GSFS-Bench 被描述为支持“推理—查询”的全球尺度耕地分割基准。",
+      "tags": {
+        "domain": [
+          "Remote sensing"
+        ],
+        "prompt": [
+          "Text",
+          "Masks"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/WithoutOcean/FarmSeeker",
+        "https://github.com/WithoutOcean/FarmSeeker/blob/main/FarmSeeker/module/FarmSeeker_Retrieve_reason_offline.py"
+      ],
+      "notes": "README says the dataset will be released upon acceptance; no licence file and no published weights were found."
+    },
+    {
+      "id": "refer-agent",
+      "name": "Refer-Agent",
+      "url": "https://github.com/iSEE-Laboratory/Refer-Agent",
+      "repo": "iSEE-Laboratory/Refer-Agent",
+      "category": "Agents & Applications",
+      "description_en": "Collaborative multi-agent system for referring video object segmentation, where reasoning and reflection stages build and check the target description before SAM 2 propagates masks through the video.",
+      "description_zh": "指代视频目标分割的协作式多智能体系统：推理与反思阶段先构建并校验目标描述，再由 SAM 2 在视频中传播掩码。",
+      "tags": {
+        "domain": [
+          "Video"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "Video"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/iSEE-Laboratory/Refer-Agent",
+        "https://arxiv.org/abs/2602.03595"
+      ],
+      "notes": "Requires a separate SAM 2 installation for mask propagation."
+    },
+    {
+      "id": "agentic-sam",
+      "name": "Agentic-SAM",
+      "url": "https://github.com/mdialameh/Agentic-SAM",
+      "repo": "mdialameh/Agentic-SAM",
+      "category": "Agents & Applications",
+      "description_en": "Local ultrasound assistant that uses LangGraph tool orchestration over SAM 3, Medical-SAM3 and MedSAM2 to segment a PTMC bounding box, track it frame by frame through RFA video and post live tracking notes.",
+      "description_zh": "本地超声助手：用 LangGraph 编排 SAM 3、Medical-SAM3 与 MedSAM2，按用户框分割 PTMC、在 RFA 视频中逐帧跟踪，并实时给出跟踪状态说明。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text",
+          "Boxes"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/mdialameh/Agentic-SAM",
+        "https://github.com/mdialameh/Agentic-SAM/tree/main/agent_api"
+      ],
+      "notes": "Local research prototype; the README links a demo video and a sample checkpoint path rather than published weights."
+    },
+    {
+      "id": "mmedagent",
+      "name": "MMedAgent",
+      "url": "https://github.com/Wangyixinxin/MMedAgent",
+      "repo": "Wangyixinxin/MMedAgent",
+      "category": "Agents & Applications",
+      "description_en": "Multimodal medical agent trained to select and call specialist tools, including MedSAM for box-prompted segmentation and Grounding DINO plus MedSAM for text-prompted segmentation, across seven imaging modalities.",
+      "description_zh": "多模态医学 Agent，经训练学会选择并调用专用工具，包括 MedSAM 的框提示分割与 Grounding DINO + MedSAM 的文本提示分割，覆盖七种成像模态。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text",
+          "Boxes"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Maintained",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/Wangyixinxin/MMedAgent",
+        "https://aclanthology.org/2024.findings-emnlp.510/"
+      ],
+      "notes": "Segmentation is one of several tool families; the demo link in the README is a temporary Gradio share URL."
+    },
+    {
+      "id": "change-agent",
+      "name": "Change-Agent",
+      "url": "https://github.com/Chen-Yang-Liu/Change-Agent",
+      "repo": "Chen-Yang-Liu/Change-Agent",
+      "category": "Agents & Applications",
+      "description_en": "LLM agent built on Lagent for bi-temporal remote-sensing images: it runs a multi-level change interpretation model to obtain change masks and descriptions, then answers follow-up questions about the changes.",
+      "description_zh": "基于 Lagent 的双时相遥感 LLM Agent：调用多层级变化解译模型得到变化掩码与描述，再就变化回答后续问题。",
+      "tags": {
+        "domain": [
+          "Remote sensing"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Maintained",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/Chen-Yang-Liu/Change-Agent",
+        "https://ieeexplore.ieee.org/document/10591792"
+      ],
+      "notes": "The agent layer is an LLM tool router over a fixed change-interpretation model; it does not inspect masks and retry, so it is a weaker fit for the agentic criterion than the entries above."
+    },
+    {
+      "id": "lore",
+      "name": "LORE",
+      "url": "https://github.com/nourhanb/LORE-Interactive-Agentic-Segmentation-Framework-",
+      "repo": "nourhanb/LORE-Interactive-Agentic-Segmentation-Framework-",
+      "category": "Agents & Applications",
+      "description_en": "Interactive agentic framework for 3D tumor segmentation: a policy observes the current mask, error residuals and shape descriptors, chooses which correction to request (click, box, scribble) and decides when to stop; the agent code is released, datasets and weights are not.",
+      "description_zh": "面向 3D 肿瘤分割的交互式 Agent 框架：策略网络观察当前掩码、误差残差与几何描述，决定请求哪种修正（点击、框、涂鸦）以及何时停止；已发布 Agent 代码，未发布数据与权重。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Interactive"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/nourhanb/LORE-Interactive-Agentic-Segmentation-Framework-"
+      ],
+      "notes": "MICCAI 2026 CLiMeM workshop paper; runs on a frozen 3D SAM backbone and needs SAM ViT-B weights supplied by the user."
+    },
+    {
+      "id": "visionagent",
+      "name": "VisionAgent",
+      "url": "https://github.com/landing-ai/vision-agent",
+      "repo": "landing-ai/vision-agent",
+      "category": "Harnesses & Frameworks",
+      "description_en": "Library that plans a vision task, generates runnable Python that calls a large tool set — including SAM 2-based instance segmentation and video tracking — then tests the generated code and iterates until its test case passes. The repository description now marks the project deprecated in favour of LandingAI's Agentic Document Extraction.",
+      "description_zh": "把视觉任务规划成计划、生成可运行的 Python 代码并调用大量工具（含基于 SAM 2 的实例分割与视频跟踪），随后执行测试并迭代直到通过；仓库简介现已标明该项目被 LandingAI 的 Agentic Document Extraction 取代（deprecated）。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Deprecated",
+      "verified": "2026-11-05",
+      "verification": "docs+code",
+      "evidence": [
+        "https://github.com/landing-ai/vision-agent",
+        "https://github.com/landing-ai/vision-agent/blob/main/vision_agent/tools/__init__.py"
+      ],
+      "notes": "Deprecation is stated in the GitHub repository description (2026-11-05); the README itself still documents setup and API keys."
+    },
+    {
+      "id": "agentic-segmentation-harness",
+      "name": "agentic-segmentation (coding-agent harness)",
+      "url": "https://github.com/sameed-khan/agentic-segmentation",
+      "repo": "sameed-khan/agentic-segmentation",
+      "category": "Harnesses & Frameworks",
+      "description_en": "Research harness in which a general coding agent drives nnInteractive through a small set of seg_* tools to segment 3D MRI tumours; versioned harness presets, per-run traces, evaluation splits and a reproducible experiment log are part of the repository.",
+      "description_zh": "研究型 harness：通用编码 Agent 通过一组 seg_* 工具驱动 nnInteractive 完成 3D MRI 肿瘤分割；仓库包含带版本的 harness 预设、逐次运行记录、评测数据划分与可复现实验日志。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Interactive"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/sameed-khan/agentic-segmentation",
+        "https://github.com/sameed-khan/agentic-segmentation/blob/integrate/harness/server/CONTRACTS.md"
+      ],
+      "notes": "Default branch is `integrate`; heavy run artifacts are tracked with DVC, and the author frames the work as an investigation rather than a product.",
+      "name_zh": "agentic-segmentation（编码 Agent harness）"
+    },
+    {
+      "id": "sam3",
+      "name": "SAM 3",
+      "url": "https://github.com/facebookresearch/sam3",
+      "repo": "facebookresearch/sam3",
+      "category": "Tools & Integrations",
+      "description_en": "Meta's promptable concept segmentation model, released with inference and fine-tuning code and a bundled agent package in which a multimodal LLM calls tools such as segment_phrase, examine_each_mask, select_masks and report_no_mask over a bounded number of turns.",
+      "description_zh": "Meta 的可提示概念分割模型，随仓库提供推理与微调代码，并内置 Agent 包：多模态 LLM 在有限轮数内调用 segment_phrase、examine_each_mask、select_masks、report_no_mask 等工具。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text",
+          "Points",
+          "Boxes"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs+code",
+      "evidence": [
+        "https://github.com/facebookresearch/sam3",
+        "https://github.com/facebookresearch/sam3/blob/main/sam3/agent/agent_core.py",
+        "https://github.com/facebookresearch/sam3/blob/main/examples/sam3_agent.ipynb"
+      ],
+      "notes": "Weights require accepting the Hugging Face access terms; the repository licence is a custom Meta licence (reported as NOASSERTION by GitHub)."
+    },
+    {
+      "id": "nninteractive-agent",
+      "name": "nnInteractive Agent",
+      "url": "https://github.com/MIC-DKFZ/nninteractive-agent",
+      "repo": "MIC-DKFZ/nninteractive-agent",
+      "category": "Tools & Integrations",
+      "description_en": "MCP server plus agent skill that gives a host agent (Claude Code, Codex or another MCP client) tools to prompt nnInteractive with scribbles, boxes and points, inspect 3D renders, undo and correct; a web demo and an agent benchmark are included.",
+      "description_zh": "MCP 服务器加 Agent Skill：让宿主 Agent（Claude Code、Codex 或其他 MCP 客户端）用涂鸦、框和点提示 nnInteractive、查看 3D 渲染、撤销与修正；另附网页演示和 Agent 基准。",
+      "tags": {
+        "domain": [
+          "Medical",
+          "Microscopy"
+        ],
+        "prompt": [
+          "Interactive"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/MIC-DKFZ/nninteractive-agent",
+        "https://github.com/MIC-DKFZ/nninteractive-agent/blob/master/benchmark/README.md",
+        "https://arxiv.org/abs/2610.31080"
+      ],
+      "notes": "The decision-making belongs to the host agent; the package supplies the tools, the workflow skill and the verification guidance."
+    },
+    {
+      "id": "sam3-segmentation-skill",
+      "name": "SAM 3 Segmentation Skill",
+      "url": "https://github.com/lillyguisnet/sam3-segmentation",
+      "repo": "lillyguisnet/sam3-segmentation",
+      "category": "Tools & Integrations",
+      "description_en": "Agent skill that wraps SAM 3 behind staged CLI commands — find, click, everything, then audit, select, review-sheets, refine and export — so a host agent can review proposals, record reversible decisions and export PNG or COCO RLE masks.",
+      "description_zh": "把 SAM 3 封装成分阶段 CLI 命令的 Agent Skill（find、click、everything，再到 audit、select、review-sheets、refine、export），让宿主 Agent 复核候选、记录可撤销决策并导出 PNG 或 COCO RLE 掩码。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text",
+          "Points",
+          "Boxes"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/lillyguisnet/sam3-segmentation",
+        "https://github.com/lillyguisnet/sam3-segmentation/blob/main/skills/sam3-segmentation/SKILL.md"
+      ],
+      "notes": "Needs an NVIDIA GPU and accepted SAM 3 access; the author states it was mostly written by an AI and not thoroughly human-checked."
+    },
+    {
+      "id": "comfyui-segmentation-agent",
+      "name": "ComfyUI Segmentation Agent",
+      "url": "https://github.com/adambarbato/ComfyUI-Segmentation-Agent",
+      "repo": "adambarbato/ComfyUI-Segmentation-Agent",
+      "category": "Tools & Integrations",
+      "description_en": "ComfyUI node that asks a vision LLM to break a character description into SAM 3 phrases, renders numbered mask candidates back to the model, and iterates until the model accepts a subset.",
+      "description_zh": "ComfyUI 节点：让视觉 LLM 把角色描述拆成若干 SAM 3 短语，把带编号的候选掩码回传模型，循环直到模型选定子集。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs+code",
+      "evidence": [
+        "https://github.com/adambarbato/ComfyUI-Segmentation-Agent",
+        "https://github.com/adambarbato/ComfyUI-Segmentation-Agent/blob/main/src/sam3_agent/nodes.py"
+      ],
+      "notes": "The published test file references a class that does not exist in the repository, so the test suite appears broken as shipped."
+    },
+    {
+      "id": "grounded-sam-2",
+      "name": "Grounded SAM 2",
+      "url": "https://github.com/IDEA-Research/Grounded-SAM-2",
+      "repo": "IDEA-Research/Grounded-SAM-2",
+      "category": "Tools & Integrations",
+      "description_en": "Demo pipelines that chain Grounding DINO or Florence-2 with SAM 2 for open-vocabulary image masks and video object tracking; a fixed pipeline rather than an agent, but a common segmentation backend in agent stacks.",
+      "description_zh": "把 Grounding DINO 或 Florence-2 与 SAM 2 串起来的演示管线，用于开放词表图像掩码与视频目标跟踪；它是固定管线而非 Agent，但常被 Agent 系统当作分割后端。",
+      "tags": {
+        "domain": [
+          "Natural images",
+          "Video"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D",
+          "Video"
+        ]
+      },
+      "status": "Maintained",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/IDEA-Research/Grounded-SAM-2",
+        "https://github.com/IDEA-Research/Grounded-SAM-2/blob/main/grounded_sam2_tracking_demo.py"
+      ],
+      "notes": "No feedback loop: text goes to a detector, boxes go to SAM 2, masks are returned. Some README features are marked as under development."
+    },
+    {
+      "id": "proofreader-mcp",
+      "name": "proofreader-mcp",
+      "url": "https://github.com/janelia-cellmap/proofreader-mcp",
+      "repo": "janelia-cellmap/proofreader-mcp",
+      "category": "Tools & Integrations",
+      "description_en": "MCP server for image-centric proofreading of segmentation objects: it stores per-object screenshots as resources, ranks likely overmerge, oversegment, junk or misclassified cases for the host LLM to judge, and records human verdicts without running any model itself.",
+      "description_zh": "面向分割对象图像化校对的 MCP 服务器：把每个对象的截图作为资源，按可能出现过合并、过分割、垃圾或误分类的程度排序交给宿主 LLM 判断，并记录人工结论；自身不跑任何模型。",
+      "tags": {
+        "domain": [
+          "Microscopy"
+        ],
+        "prompt": [
+          "No prompt"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/janelia-cellmap/proofreader-mcp"
+      ],
+      "notes": "Explicitly a resource and state layer, with the host LLM doing all visual judgment."
+    },
+    {
+      "id": "gfm-mcp",
+      "name": "gfm-mcp",
+      "url": "https://github.com/yuyi1008688/gfm-mcp",
+      "repo": "yuyi1008688/gfm-mcp",
+      "category": "Tools & Integrations",
+      "description_en": "MCP server that exposes geospatial foundation model inference as tools — building extraction, water segmentation, object detection, change detection, zero-shot scene classification and embeddings — so an LLM agent can call remote-sensing segmentation from CPU.",
+      "description_zh": "把地理空间基础模型推理封装成 MCP 工具（建筑物提取、水体分割、目标检测、变化检测、零样本场景分类与嵌入），使 LLM Agent 能在 CPU 上调用遥感分割。",
+      "tags": {
+        "domain": [
+          "Remote sensing"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/yuyi1008688/gfm-mcp"
+      ],
+      "notes": "Chinese-first documentation; GPL-3.0; some embedding tools need a proxy for Google Earth Engine."
+    },
+    {
+      "id": "mcp-slicer",
+      "name": "MCP-Slicer",
+      "url": "https://github.com/zhaoyouj/mcp-slicer",
+      "repo": "zhaoyouj/mcp-slicer",
+      "category": "Tools & Integrations",
+      "description_en": "MCP server that lets a client drive 3D Slicer: list MRML nodes, execute Python inside the Slicer environment and capture screenshots of slice and 3D views, which supplies the visual feedback step of a ReAct-style loop.",
+      "description_zh": "让客户端操控 3D Slicer 的 MCP 服务器：列出 MRML 节点、在 Slicer 环境内执行 Python、截取切片与 3D 视图，为 ReAct 式循环提供视觉反馈。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "No prompt"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/zhaoyouj/mcp-slicer"
+      ],
+      "notes": "Segmentation is reached through Slicer modules and the Python tool, not through a dedicated segmentation tool."
+    },
+    {
+      "id": "bioimage-agent",
+      "name": "BioImage-Agent (napari MCP)",
+      "url": "https://github.com/llnl/bioimage-agent",
+      "repo": "llnl/bioimage-agent",
+      "category": "Tools & Integrations",
+      "description_en": "napari plugin that exposes the viewer over MCP through a socket server, letting external agents inspect images and call napari's public API from a separate process.",
+      "description_zh": "napari 插件，通过 socket 服务器把查看器以 MCP 暴露出去，让外部 Agent 能检查图像并从另一个进程调用 napari 的公共 API。",
+      "tags": {
+        "domain": [
+          "Microscopy"
+        ],
+        "prompt": [
+          "No prompt"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/llnl/bioimage-agent"
+      ],
+      "notes": "A viewer-control integration; segmentation happens in other napari plugins the agent may call.",
+      "name_zh": "BioImage-Agent（napari MCP）"
+    },
+    {
+      "id": "medmcp",
+      "name": "MedMCP",
+      "url": "https://github.com/medmcp/medmcp",
+      "repo": "medmcp/medmcp",
+      "category": "Tools & Integrations",
+      "description_en": "On-premise agentic workspace for medical imaging: a locally served model plans the work, installable tool stacks do the computation, and a viewer shows images with segmentation overlays; by default nothing leaves the machine.",
+      "description_zh": "本地部署的医学影像 Agent 工作台：本地模型规划任务、可安装的工具栈执行计算、查看器显示图像与分割叠加结果；默认情况下数据不出本机。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/medmcp/medmcp"
+      ],
+      "notes": "README states it is under active development and not licensed for clinical use."
+    },
+    {
+      "id": "biabench",
+      "name": "BIABench",
+      "url": "https://github.com/BIABench/BIABench",
+      "repo": "BIABench/BIABench",
+      "category": "Evaluation & Benchmarks",
+      "description_en": "Benchmark of 16 real bioimage-analysis tasks reconstructed from published studies, scored both on the produced result and on how the analysis was carried out; it ships adapters for coding agents such as Claude Code, Codex and DeepSeek Harness behind a single run(instruction, input_dir, output_dir) interface.",
+      "description_zh": "包含 16 个源自已发表研究的真实生物图像分析任务的基准，同时给结果分与过程分；为 Claude Code、Codex、DeepSeek Harness 等编码 Agent 提供适配器，统一 run(instruction, input_dir, output_dir) 接口。",
+      "tags": {
+        "domain": [
+          "Microscopy"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/BIABench/BIABench",
+        "https://arxiv.org/abs/2609.34274"
+      ],
+      "notes": "Tasks include nuclear segmentation; scoring separates outcome from process, so a successful execution is not by itself a quality result."
+    },
+    {
+      "id": "sam3-agent-notebook",
+      "name": "SAM 3 Agent notebook",
+      "url": "https://github.com/facebookresearch/sam3/blob/main/examples/sam3_agent.ipynb",
+      "repo": "facebookresearch/sam3",
+      "category": "Examples & Tutorials",
+      "description_en": "Official notebook that runs the SAM 3 agent end to end: it builds SAM 3, points it at a vLLM-served Qwen3-VL, and calls run_single_image_inference on a text query, writing the prediction, a rendered mask and the agent history.",
+      "description_zh": "官方 Notebook，端到端运行 SAM 3 Agent：构建 SAM 3、接入 vLLM 部署的 Qwen3-VL，对文本查询调用 run_single_image_inference，输出预测、渲染掩码与 Agent 历史。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/facebookresearch/sam3/blob/main/examples/sam3_agent.ipynb",
+        "https://github.com/facebookresearch/sam3/blob/main/sam3/agent/inference.py"
+      ],
+      "notes": "See also the SAM 3 entry; the notebook requires a separately served VLM endpoint."
+    },
+    {
+      "id": "vasa-demo",
+      "name": "VASA demo and trace viewer",
+      "url": "https://github.com/Wayne2Wang/VASA/tree/main/outputs",
+      "repo": "Wayne2Wang/VASA",
+      "category": "Examples & Tutorials",
+      "description_en": "Three ready-made queries on the bundled example image with their recorded outputs; opening trace.html replays planning, tool calls and mask edits step by step without running anything.",
+      "description_zh": "示例图片上的三条现成查询及录制结果；直接打开 trace.html 就能逐步回放规划、工具调用与掩码编辑，无需运行任何代码。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Early",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/Wayne2Wang/VASA/tree/main/outputs",
+        "https://github.com/Wayne2Wang/VASA/blob/main/demo.py"
+      ],
+      "notes": "See also the VASA entry.",
+      "name_zh": "VASA 演示与 trace 查看器"
+    },
+    {
+      "id": "nninteractive-web-demo",
+      "name": "nnInteractive Agent web demo",
+      "url": "https://github.com/MIC-DKFZ/nninteractive-agent#web-demo",
+      "repo": "MIC-DKFZ/nninteractive-agent",
+      "category": "Examples & Tutorials",
+      "description_en": "Browser demo that runs the same MCP tools and skill behind a chat with live 2D/3D views, for showing agent-driven 3D annotation to people who have no agent installed.",
+      "description_zh": "浏览器演示：把同一套 MCP 工具与 skill 放在聊天界面之后，配合实时 2D/3D 视图，向没有安装 Agent 的人展示 Agent 驱动的 3D 标注。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Interactive"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/MIC-DKFZ/nninteractive-agent#web-demo"
+      ],
+      "notes": "See also the nnInteractive Agent entry.",
+      "name_zh": "nnInteractive Agent 网页演示"
+    },
+    {
+      "id": "rsagent",
+      "name": "RSAgent",
+      "url": "https://arxiv.org/abs/2512.24023",
+      "repo": null,
+      "category": "Papers & Surveys",
+      "description_en": "Agentic multimodal LLM for text-guided segmentation that queries a segmentation toolbox, observes visual feedback and revises its spatial hypothesis over multiple turns; trained with cold-start SFT followed by agentic RL. No public code repository was found at verification time.",
+      "description_zh": "面向文本引导分割的 Agent 式多模态 LLM：多轮调用分割工具箱、观察视觉反馈并修正空间假设；先冷启动 SFT 再做 Agent 强化学习。核验时未找到公开代码仓库。",
+      "tags": {
+        "domain": [
+          "Natural images"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Paper only",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://arxiv.org/abs/2512.24023"
+      ],
+      "notes": "Reported numbers are the authors' results on ReasonSeg and RefCOCOg; not reproduced here."
+    },
+    {
+      "id": "rsure-agent",
+      "name": "RSure-Agent",
+      "url": "https://github.com/AIRS101/RSure-Agent",
+      "repo": "AIRS101/RSure-Agent",
+      "category": "Papers & Surveys",
+      "description_en": "Remote-sensing agent that verifies tool observations before using them in later reasoning to reduce error propagation; the repository publishes the site, demo videos and paper, while the core tool-calling and verification code is still listed as unreleased.",
+      "description_zh": "遥感 Agent：在后续推理前先校验工具返回的观测，以减少误差传播。仓库已发布项目页、演示视频与论文，但核心工具调用与校验代码仍标注为未发布。",
+      "tags": {
+        "domain": [
+          "Remote sensing"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "2D"
+        ]
+      },
+      "status": "Paper only",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/AIRS101/RSure-Agent",
+        "https://arxiv.org/abs/2610.04836"
+      ],
+      "notes": "README release checklist: code and installation guides remain unchecked."
+    },
+    {
+      "id": "voxelprompt",
+      "name": "VoxelPrompt",
+      "url": "https://arxiv.org/abs/2410.08397",
+      "repo": null,
+      "category": "Papers & Surveys",
+      "description_en": "Vision-language agent for 3D medical images that emits executable instructions to a frozen segmentation network, adapting language prompts to volumetric tasks end to end. No public code repository was found at verification time.",
+      "description_zh": "面向 3D 医学影像的视觉语言 Agent：向冻结的分割网络输出可执行指令，端到端把语言提示落到体数据任务上。核验时未找到公开代码仓库。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Paper only",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://arxiv.org/abs/2410.08397"
+      ],
+      "notes": "A search for an official repository returned no result; claims are the authors'."
+    },
+    {
+      "id": "seer",
+      "name": "SEER",
+      "url": "https://github.com/Ztrura/SEER",
+      "repo": "Ztrura/SEER",
+      "category": "Papers & Surveys",
+      "description_en": "Vision-language reasoning model for free-text 3D medical segmentation that grounds clinical language in image evidence and emits an executable target specification for a segmentation backbone; checkpoints, inference code and an evaluation split are released.",
+      "description_zh": "面向自由文本 3D 医学分割的视觉语言推理模型：把临床语言落到图像证据上，并输出可供分割骨干执行的目标规格；已发布权重、推理代码与评测划分。",
+      "tags": {
+        "domain": [
+          "Medical"
+        ],
+        "prompt": [
+          "Text"
+        ],
+        "dim": [
+          "3D"
+        ]
+      },
+      "status": "Active",
+      "verified": "2026-11-05",
+      "verification": "docs only",
+      "evidence": [
+        "https://github.com/Ztrura/SEER",
+        "https://arxiv.org/abs/2603.08215"
+      ],
+      "notes": "Reasoning is single-pass: it produces a specification rather than iterating with tools, so it is listed as research rather than as an agent system."
+    }
+  ],
+  "embedded_benchmarks": [
+    {
+      "name": "nnInteractive Agent benchmark",
+      "url": "https://github.com/MIC-DKFZ/nninteractive-agent/blob/master/benchmark/README.md",
+      "host_entry": "nnInteractive Agent",
+      "measures": "Mean Dice of Claude Code and Codex driving nnInteractive on 14 public CT/MRI/PET images and 51 named targets, compared with single-click prompting and a text-only 3D model."
+    },
+    {
+      "name": "HLMAT evaluation",
+      "url": "https://github.com/aim-uofa/SegAgent/blob/main/evaltools/eval.md",
+      "host_entry": "SegAgent",
+      "measures": "Mask quality after human-like click trajectories, evaluated with the repository's IoU script on RefCOCO+ style splits."
+    },
+    {
+      "name": "MSTT-199 and BEAMSTER splits",
+      "url": "https://github.com/sameed-khan/agentic-segmentation/tree/integrate/eval",
+      "host_entry": "agentic-segmentation (coding-agent harness)",
+      "measures": "Coding-agent segmentation of soft-tissue tumours and brain metastases in 3D MRI, with per-run scores and trajectories."
+    },
+    {
+      "name": "GSFS-Bench",
+      "url": "https://github.com/WithoutOcean/FarmSeeker",
+      "host_entry": "FarmSeeker",
+      "measures": "Farmland segmentation with reasoning-and-querying over extra spatio-temporal imagery; dataset not yet released at verification time."
+    },
+    {
+      "name": "MedSegAgent model-selection test set",
+      "url": "https://github.com/uni-medical/MedSegAgent/blob/main/evaluate.py",
+      "host_entry": "MedSegAgent",
+      "measures": "Dataset-level hit rate of the routing pipeline, not mask Dice."
+    }
+  ],
+  "related": [
+    {
+      "name": "awesome-semantic-segmentation",
+      "url": "https://github.com/mrgloom/awesome-semantic-segmentation",
+      "why_en": "Classic segmentation model, dataset and tool index; useful for the model layer this list deliberately does not catalogue.",
+      "why_zh": "传统的分割模型、数据集与工具索引；适合查阅本清单刻意不收的模型层。"
+    },
+    {
+      "name": "Awesome-Segment-Anything",
+      "url": "https://github.com/liliu-avril/Awesome-Segment-Anything",
+      "why_en": "Promptable-segmentation paper collection, including SAM-family work and interactive segmentation.",
+      "why_zh": "可提示分割的论文汇总，含 SAM 系列与交互式分割工作。"
+    },
+    {
+      "name": "awesome-medical-imaging-agents",
+      "url": "https://github.com/Nanboy-Ronan/awesome-medical-imaging-agents",
+      "why_en": "Broad index of medical imaging agents with a dedicated segmentation-and-annotation section.",
+      "why_zh": "医学影像 Agent 的广泛索引，设有分割与标注代理专节。"
+    },
+    {
+      "name": "Awesome-Multimodal-Agent",
+      "url": "https://github.com/OpenEnvision/Awesome-Multimodal-Agent",
+      "why_en": "Multimodal agent papers; adjacent to tool-using segmentation agents.",
+      "why_zh": "多模态 Agent 论文汇总，与工具调用型分割 Agent 相邻。"
+    },
+    {
+      "name": "SAM 2",
+      "url": "https://github.com/facebookresearch/sam2",
+      "why_en": "Promptable image and video segmentation backend used by several agent systems above.",
+      "why_zh": "可提示的图像与视频分割后端，上文多个 Agent 系统都在使用。"
+    },
+    {
+      "name": "nnInteractive",
+      "url": "https://github.com/MIC-DKFZ/nnInteractive",
+      "why_en": "3D interactive segmentation framework behind the nnInteractive Agent entry.",
+      "why_zh": "nnInteractive Agent 条目背后的 3D 交互式分割框架。"
+    },
+    {
+      "name": "MedSAM2",
+      "url": "https://github.com/bowang-lab/MedSAM2",
+      "why_en": "Medical promptable segmentation and tracking model used as a backend by medical agents here.",
+      "why_zh": "医学可提示分割与跟踪模型，被本清单中的医学 Agent 当作后端。"
+    },
+    {
+      "name": "Seg-Zero",
+      "url": "https://github.com/JIA-Lab-research/Seg-Zero",
+      "why_en": "Reasoning-chain segmentation model with a separate mask decoder; no tool loop, so it is linked rather than curated as an agent.",
+      "why_zh": "带独立掩码解码器的推理链分割模型；没有工具调用闭环，因此仅作外链而非 Agent 收录。"
+    },
+    {
+      "name": "ThinkGeo",
+      "url": "https://github.com/mbzuai-oryx/ThinkGeo",
+      "why_en": "Benchmark for tool-augmented remote-sensing agents; not segmentation-scored, so it is linked rather than listed as a segmentation benchmark.",
+      "why_zh": "工具增强遥感 Agent 的基准；不按分割质量计分，因此仅作外链而非分割基准收录。"
+    }
+  ]
+}

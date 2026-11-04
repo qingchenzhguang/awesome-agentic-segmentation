@@ -1,0 +1,46 @@
+# Local environment and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*.ppk
+*_rsa
+id_ed25519*
+credentials.json
+token.txt
+secrets/
+
+# Model weights and datasets (never committed to this list repo)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.gguf
+*.h5
+*.pkl
+checkpoints/
+weights/
+datasets/
+data/*.zip
+data/*.tar.gz
+
+# Local notes and scratch output
+scratch/
+tmp/
+*.log
+outputs/
