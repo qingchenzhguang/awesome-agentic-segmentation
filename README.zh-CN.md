@@ -54,7 +54,7 @@
 先看 [VASA](https://github.com/Wayne2Wang/VASA)，它维护一张工作掩码，通过规划、审视与错误恢复反复修改；或者看官方 [SAM 3 Agent notebook](https://github.com/facebookresearch/sam3/blob/main/examples/sam3_agent.ipynb)，它演示 MLLM 在有限轮数内调用 SAM 3 工具。两者都需要模型权重与 VLM 端点，都无法在普通笔记本 CPU 上跑。
 
 **2. 「给我的编码 Agent 装上分割工具」。**
-[nnInteractive Agent](https://github.com/MIC-DKFZ/nninteractive-agent) 是本清单里最完整的例子：MCP 服务器、带修正手册的 skill、以 3D 渲染作为反馈，并附带 14 个体数据的 Agent 基准。二维照片方向，[SAM 3 Segmentation Skill](https://github.com/lillyguisnet/sam3-segmentation) 把复核表、可撤销决策与 COCO 导出打包成 skill。
+[nnInteractive Agent](https://github.com/MIC-DKFZ/nninteractive-agent) 是本清单里最完整的例子：MCP 服务器、带修正手册的 skill、以 3D 渲染作为反馈，并附带 14 个公开影像的 Agent 基准。二维照片方向，[SAM 3 Segmentation Skill](https://github.com/lillyguisnet/sam3-segmentation) 把复核表、可撤销决策与 COCO 导出打包成 skill。
 
 **3. 「我想研究或自己搭 harness」。**
 [agentic-segmentation harness](https://github.com/sameed-khan/agentic-segmentation) 记录了带版本的预设、逐次运行轨迹与评测划分；[BIABench](https://github.com/BIABench/BIABench) 对 16 个生物图像任务同时评结果与过程。看 [VisionAgent](https://github.com/landing-ai/vision-agent) 之前请先读[运行框架](#harnesses--frameworks)一节的说明：它文档完整，但仓库简介已标注 deprecated。
