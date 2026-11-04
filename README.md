@@ -158,7 +158,8 @@ calls, and where its feedback comes from are stated per entry.
 
 - **[MMedAgent](https://github.com/Wangyixinxin/MMedAgent)** — Multimodal medical agent trained to
   select and call specialist tools, including MedSAM for box-prompted segmentation and Grounding
-  DINO plus MedSAM for text-prompted segmentation, across seven imaging modalities.
+  DINO plus MedSAM for text-prompted segmentation, across modalities that include MRI, CT, X-ray,
+  histology and gross pathology.
   <sub>`Medical` · `Text` `Boxes` · `2D` · Status: `Maintained` · Verified: 2026-11-05 · [paper](https://aclanthology.org/2024.findings-emnlp.510/)</sub>
 
 - **[Change-Agent](https://github.com/Chen-Yang-Liu/Change-Agent)** — LLM agent built on Lagent for
@@ -309,8 +310,8 @@ accuracy against human annotation are three different things. Entries here state
 one canonical entry in this list):
 
 - [nnInteractive Agent benchmark](https://github.com/MIC-DKFZ/nninteractive-agent/blob/master/benchmark/README.md)
-  — mean Dice of Claude Code and Codex driving nnInteractive on 14 public CT/MRI/PET images and 51
-  targets, compared with single-click prompting and a text-only 3D model.
+  — mean Dice of Claude Code and Codex driving nnInteractive on 14 public CT, MRI, PET and micro-CT
+  images and 51 targets, compared with single-click prompting and a text-only 3D model.
 - [HLMAT evaluation](https://github.com/aim-uofa/SegAgent/blob/main/evaltools/eval.md) — mask quality
   after human-like click trajectories, measured with the repository's IoU script.
 - [MSTT-199 and BEAMSTER splits](https://github.com/sameed-khan/agentic-segmentation/tree/integrate/eval)

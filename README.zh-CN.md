@@ -97,7 +97,7 @@
 - **[Agentic-SAM](https://github.com/mdialameh/Agentic-SAM)** — 本地超声助手：用 LangGraph 编排 SAM 3、Medical-SAM3 与 MedSAM2，按用户框分割 PTMC、在 RFA 视频中逐帧跟踪，并实时给出跟踪状态说明。
   <sub>`Medical` · `Text` `Boxes` · `2D` · 状态 `Early` · 核验 2026-11-05</sub>
 
-- **[MMedAgent](https://github.com/Wangyixinxin/MMedAgent)** — 多模态医学 Agent，经训练学会选择并调用专用工具，包括 MedSAM 的框提示分割与 Grounding DINO + MedSAM 的文本提示分割，覆盖七种成像模态。
+- **[MMedAgent](https://github.com/Wangyixinxin/MMedAgent)** — 多模态医学 Agent，经训练学会选择并调用专用工具，包括 MedSAM 的框提示分割与 Grounding DINO + MedSAM 的文本提示分割，覆盖 MRI、CT、X 光、组织学与大体病理等模态。
   <sub>`Medical` · `Text` `Boxes` · `2D` · 状态 `Maintained` · 核验 2026-11-05 · [论文](https://aclanthology.org/2024.findings-emnlp.510/)</sub>
 
 - **[Change-Agent](https://github.com/Chen-Yang-Liu/Change-Agent)** — 基于 Lagent 的双时相遥感 LLM Agent：调用多层级变化解译模型得到变化掩码与描述，再就变化回答后续问题。
@@ -192,7 +192,7 @@ Agent 可以调用的后端、MCP 服务器、skill、插件、适配器与固�
 **已收录项目自带的基准**（交叉链接，不重复计为独立条目——一个项目在本清单中只保留一个主条目）：
 
 - [nnInteractive Agent benchmark](https://github.com/MIC-DKFZ/nninteractive-agent/blob/master/benchmark/README.md)
-  —— Claude Code 与 Codex 驱动 nnInteractive 在 14 个公开 CT/MRI/PET 影像、51 个目标上的平均 Dice，并对比单击提示与纯文本 3D 模型。
+  —— Claude Code 与 Codex 驱动 nnInteractive 在 14 个公开 CT、MRI、PET 与 micro-CT 影像、51 个目标上的平均 Dice，并对比单击提示与纯文本 3D 模型。
 - [HLMAT 评测](https://github.com/aim-uofa/SegAgent/blob/main/evaltools/eval.md) —— 按类人点击轨迹得到的掩码质量，用仓库自带 IoU 脚本计算。
 - [MSTT-199 与 BEAMSTER 划分](https://github.com/sameed-khan/agentic-segmentation/tree/integrate/eval)
   —— 编码 Agent 在 3D MRI 上分割软组织肿瘤与脑转移，附逐次得分与轨迹。

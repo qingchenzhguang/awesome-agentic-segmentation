@@ -300,8 +300,8 @@
       "url": "https://github.com/Wangyixinxin/MMedAgent",
       "repo": "Wangyixinxin/MMedAgent",
       "category": "Agents & Applications",
-      "description_en": "Multimodal medical agent trained to select and call specialist tools, including MedSAM for box-prompted segmentation and Grounding DINO plus MedSAM for text-prompted segmentation, across seven imaging modalities.",
-      "description_zh": "多模态医学 Agent，经训练学会选择并调用专用工具，包括 MedSAM 的框提示分割与 Grounding DINO + MedSAM 的文本提示分割，覆盖七种成像模态。",
+      "description_en": "Multimodal medical agent trained to select and call specialist tools, including MedSAM for box-prompted segmentation and Grounding DINO plus MedSAM for text-prompted segmentation, across modalities that include MRI, CT, X-ray, histology and gross pathology.",
+      "description_zh": "多模态医学 Agent，经训练学会选择并调用专用工具，包括 MedSAM 的框提示分割与 Grounding DINO + MedSAM 的文本提示分割，覆盖 MRI、CT、X 光、组织学与大体病理等模态。",
       "tags": {
         "domain": [
           "Medical"
@@ -949,7 +949,7 @@
       "name": "nnInteractive Agent benchmark",
       "url": "https://github.com/MIC-DKFZ/nninteractive-agent/blob/master/benchmark/README.md",
       "host_entry": "nnInteractive Agent",
-      "measures": "Mean Dice of Claude Code and Codex driving nnInteractive on 14 public CT/MRI/PET images and 51 named targets, compared with single-click prompting and a text-only 3D model."
+      "measures": "Mean Dice of Claude Code and Codex driving nnInteractive on 14 public CT, MRI, PET and micro-CT images and 51 named targets, compared with single-click prompting and a text-only 3D model."
     },
     {
       "name": "HLMAT evaluation",
