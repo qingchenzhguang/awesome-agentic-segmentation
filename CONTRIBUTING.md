@@ -57,25 +57,28 @@ If a category has no qualifying entry, it is omitted rather than shipped as an e
 
 ## 3. Entry format
 
-Every entry uses the same shape:
+Every entry is one row of a section table:
 
 ```markdown
-- **[Name](https://canonical/link)** — What it actually provides, which task it solves, what is
-  distinctive.
-  <sub>`Domain` · `Prompt` · `2D` · Status: `Active` · Verified: 2026-11-05 · [paper](https://…)</sub>
+| Project | What it provides | Status · verified |
+| :--- | :--- | :--- |
+| **[Name](https://canonical/link)** · [paper](https://…)<br><sub>`Domain` · `Prompt` · `2D`</sub> | One or two sentences on what it actually provides, which task it solves, what is distinctive. | `Active`<br>2026-11-05 |
 ```
 
 Rules:
 
-- **Name** — the project's own name, not the repository slug when they differ.
+- **Name** — the project's own name, not the repository slug when they differ. Keep it short; put a
+  parenthetical qualifier in the prose, not in the name.
 - **Canonical link** — the project's own repository or documentation, not a mirror, not a tweet,
   not a referral link. If a repo moved, link the current location and keep the move in
   *docs/research-notes.md*.
 - **Description** — one or two sentences, third person, present tense, factual. Describe what the
   software does and its scope. Do **not** write "best", "state-of-the-art", "general-purpose",
   "production-ready", or "tested" unless the repository itself contains the evidence and the entry
-  says what that evidence is.
-- **Tags** — a small controlled vocabulary, not free text:
+  says what that evidence is. The README cell may condense the canonical description stored in
+  `data/resources.json`, but it must not add a new claim.
+- **Tags** — a small controlled vocabulary, not free text. They sit in a `<sub>` line under the name,
+  separated by ` · `:
   - Domain: `Natural images`, `Medical`, `Remote sensing`, `Microscopy`, `Video`
   - Prompt: `Text`, `Points`, `Boxes`, `Masks`, `Interactive`, `No prompt`
   - Dimensionality: `2D`, `3D`, `2D+3D`, `Video`
@@ -83,12 +86,20 @@ Rules:
   `Unverified`. `Early` means the artifact exists but is explicitly incomplete; `Deprecated` means
   the owner now points users elsewhere; `Paper only` means no public code was found or the code is
   explicitly unreleased; `Unverified` means we could not read the artifact yet and says so.
-- **Verified** — the date of the last verification, in `YYYY-MM-DD`.
-- **Links** — code, paper, docs, demo, as available. Do not link a paper that has no relation to
-  the entry's claims.
+- **Verified** — the date of the last verification, in `YYYY-MM-DD`, on its own line in the last cell
+  after the status. All rows in this version share one date because they were checked in one pass;
+  re-checked rows get the new date and the rest keep theirs.
+- **Links** — code, paper, docs, demo, as available, attached to the name cell. Do not link a paper
+  that has no relation to the entry's claims.
+
+A row may be followed by a short **Notes** paragraph under the table when a caveat does not fit in
+the cell. Keep notes to the caveats that change a reader's decision, not to a restatement of the
+row. Counts in the *Browse* table, the footer, and the badges are generated from the number of rows
+and must be updated with every add or removal.
 
 Every entry must additionally be recorded in [`data/resources.json`](data/resources.json) with the
-same name, URL, category, and date. The two must not drift.
+same name, URL, category, status and date. The JSON record also holds the full description, tags,
+verification level and evidence links. Rows and records must not drift on the shared fields.
 
 ## 4. Sources and evidence
 

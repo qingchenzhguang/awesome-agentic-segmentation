@@ -78,10 +78,11 @@ def main() -> int:
             if heading in skip_headings:
                 continue
             anchor = slug(heading)
-            if f"](#{anchor})" not in text and filename == "README.md":
+            linked = f"](#{anchor})" in text or f'href="#{anchor}"' in text
+            if filename == "README.md" and not linked:
                 problems.append(f"{filename}: heading has no TOC link: {heading}")
 
-        for target in re.findall(r"\]\((?!#)([^):\s]+\.(?:md|json))\)", text):
+        for target in re.findall(r"\]\((?!#)([^):\s]+\.(?:md|json|svg))\)", text):
             if not (ROOT / target).exists():
                 problems.append(f"{filename}: relative link missing on disk: {target}")
 

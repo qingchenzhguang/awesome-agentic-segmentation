@@ -408,7 +408,7 @@
     },
     {
       "id": "agentic-segmentation-harness",
-      "name": "agentic-segmentation (coding-agent harness)",
+      "name": "agentic-segmentation",
       "url": "https://github.com/sameed-khan/agentic-segmentation",
       "repo": "sameed-khan/agentic-segmentation",
       "category": "Harnesses & Frameworks",
@@ -432,8 +432,7 @@
         "https://github.com/sameed-khan/agentic-segmentation",
         "https://github.com/sameed-khan/agentic-segmentation/blob/integrate/harness/server/CONTRACTS.md"
       ],
-      "notes": "Default branch is `integrate`; heavy run artifacts are tracked with DVC, and the author frames the work as an investigation rather than a product.",
-      "name_zh": "agentic-segmentation（编码 Agent harness）"
+      "notes": "Default branch is `integrate`; heavy run artifacts are tracked with DVC, and the author frames the work as an investigation rather than a product."
     },
     {
       "id": "sam3",
@@ -667,7 +666,7 @@
     },
     {
       "id": "bioimage-agent",
-      "name": "BioImage-Agent (napari MCP)",
+      "name": "BioImage-Agent",
       "url": "https://github.com/llnl/bioimage-agent",
       "repo": "llnl/bioimage-agent",
       "category": "Tools & Integrations",
@@ -690,8 +689,7 @@
       "evidence": [
         "https://github.com/llnl/bioimage-agent"
       ],
-      "notes": "A viewer-control integration; segmentation happens in other napari plugins the agent may call.",
-      "name_zh": "BioImage-Agent（napari MCP）"
+      "notes": "A viewer-control integration; segmentation happens in other napari plugins the agent may call."
     },
     {
       "id": "medmcp",

@@ -42,6 +42,27 @@ verification date and evidence link, and no copied marketing language. Consequen
 per-entry score badges, free-text categories, and any claim that a third-party project is "tested"
 by this curation.
 
+### Layout reference
+
+On 2026-11-12 the READMEs were re-typeset after reading
+[AgenticGraphics/Awesome-Agentic-Graphics](https://github.com/AgenticGraphics/Awesome-Agentic-Graphics)
+on the same day. Borrowed: the centred title with a badge row, the quick-nav strip, the hero figure
+with a one-line caption, a *Design space* table that defines the labels before any entry, a *Browse*
+table that maps roles to sections, one table per section with a leading intro sentence, a *Notes*
+line for caveats that do not fit a cell, and a closing *Open questions* section.
+
+Not borrowed: the `awesome.re` badge (this list is not indexed there), an arXiv/Hugging Face badge
+(each entry links its own paper), the citation block (there is no paper), and their paper-table
+columns `Publication · Paper Title · Code`, which assume one-line items. The rows here need what the
+system does and how it feeds back, so they use three columns — `Project · What it provides ·
+Status · verified` — with the controlled tags on a `<sub>` line under the project name.
+
+A local `assets/hero.svg` was drawn for this repository rather than reusing the reference figures;
+it is a generic plan → call tools → inspect mask → refine loop, not a claim about any listed system.
+Badges are static shields.io images with fixed text, not metrics or embedded third-party services;
+they must be updated by hand when counts change. Content was not re-verified for this change, so
+every row keeps the 2026-11-05 verification date; only the presentation changed.
+
 ## 3. Why each entry is on the list (short evidence)
 
 Agent/applications:
