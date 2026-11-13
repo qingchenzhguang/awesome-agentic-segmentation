@@ -46,12 +46,13 @@ contributions.
 ## Editing rules
 
 - `data/resources.json` is the source of truth for names, URLs, categories, tags, status, and
-  verification dates. Both READMEs must match those fields, in the same order; the table prose may
-  condense the JSON description but must not add a claim.
+  verification dates. Both READMEs must match name, URL, category and tags, in the same order; the
+  table prose may condense the JSON description but must not add a claim. Status and verification
+  dates are stored only in the JSON record, not printed per row.
 - Both READMEs are updated in the same change, and both use the table layout: a centred title,
-  badges, a nav strip, Overview, Design space, Browse, Start here, one table per section, Open
-  questions, Contributing and Usage notice. Keep the row counts in Browse, the badges and the
-  footer in sync with the number of rows.
+  badges, a nav strip, Overview, Design space, Browse, Start here, Patterns, one table per section,
+  Maintenance, Open questions, Contributing and Usage notice. Keep the row counts in Browse, the
+  badges and the footer in sync with the number of rows.
 - Chinese text is a translation of the English row, not a separate opinion; if a claim cannot be
   translated faithfully, simplify the English first.
 - One project, one canonical row. Use "See also" for cross-category references.

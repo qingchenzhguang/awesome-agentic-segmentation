@@ -49,19 +49,29 @@ On 2026-11-12 the READMEs were re-typeset after reading
 on the same day. Borrowed: the centred title with a badge row, the quick-nav strip, the hero figure
 with a one-line caption, a *Design space* table that defines the labels before any entry, a *Browse*
 table that maps roles to sections, one table per section with a leading intro sentence, a *Notes*
-line for caveats that do not fit a cell, and a closing *Open questions* section.
+line for caveats that do not fit a cell, the "back to contents" links, and a closing *Open questions*
+section.
+
+A second pass on 2026-11-13 removed the per-row `Status · verified` column. Per-entry status and
+verification dates are useful to a maintainer but are not what a reader scans a curated list for;
+the reference carries neither, and printing them in every row made the tables read like an audit
+log. Both now live only in `data/resources.json`, with a single *Maintenance* section explaining how
+the list is checked and where the record lives; entries where the distinction changes what the row
+*is* — deprecated or paper-only — say so in prose. The table columns are therefore `Project · What
+it provides · Scope`, with the controlled tags in the last column. The same pass added a *Patterns*
+section, which is the closest analogue of the reference's *Key Findings*: five observations that the
+entries themselves support, rather than new claims.
 
 Not borrowed: the `awesome.re` badge (this list is not indexed there), an arXiv/Hugging Face badge
 (each entry links its own paper), the citation block (there is no paper), and their paper-table
-columns `Publication · Paper Title · Code`, which assume one-line items. The rows here need what the
-system does and how it feeds back, so they use three columns — `Project · What it provides ·
-Status · verified` — with the controlled tags on a `<sub>` line under the project name.
+columns `Publication · Paper Title · Code`, which assume one-line items and a publication date that
+software entries do not have.
 
 A local `assets/hero.svg` was drawn for this repository rather than reusing the reference figures;
 it is a generic plan → call tools → inspect mask → refine loop, not a claim about any listed system.
 Badges are static shields.io images with fixed text, not metrics or embedded third-party services;
-they must be updated by hand when counts change. Content was not re-verified for this change, so
-every row keeps the 2026-11-05 verification date; only the presentation changed.
+they must be updated by hand when counts change. Content was not re-verified for either pass, so
+every JSON record still carries the 2026-11-05 verification date; only the presentation changed.
 
 ## 3. Why each entry is on the list (short evidence)
 

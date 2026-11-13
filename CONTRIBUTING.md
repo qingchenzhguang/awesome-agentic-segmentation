@@ -60,9 +60,9 @@ If a category has no qualifying entry, it is omitted rather than shipped as an e
 Every entry is one row of a section table:
 
 ```markdown
-| Project | What it provides | Status · verified |
+| Project | What it provides | Scope |
 | :--- | :--- | :--- |
-| **[Name](https://canonical/link)** · [paper](https://…)<br><sub>`Domain` · `Prompt` · `2D`</sub> | One or two sentences on what it actually provides, which task it solves, what is distinctive. | `Active`<br>2026-11-05 |
+| **[Name](https://canonical/link)** · [paper](https://…) | One or two sentences on what it actually provides, which task it solves, what is distinctive. | `Domain` · `Prompt` · `2D` |
 ```
 
 Rules:
@@ -77,29 +77,30 @@ Rules:
   "production-ready", or "tested" unless the repository itself contains the evidence and the entry
   says what that evidence is. The README cell may condense the canonical description stored in
   `data/resources.json`, but it must not add a new claim.
-- **Tags** — a small controlled vocabulary, not free text. They sit in a `<sub>` line under the name,
-  separated by ` · `:
+- **Tags** — a small controlled vocabulary, not free text, in the last cell:
   - Domain: `Natural images`, `Medical`, `Remote sensing`, `Microscopy`, `Video`
   - Prompt: `Text`, `Points`, `Boxes`, `Masks`, `Interactive`, `No prompt`
   - Dimensionality: `2D`, `3D`, `2D+3D`, `Video`
-- **Status** — exactly one of: `Active`, `Maintained`, `Early`, `Deprecated`, `Paper only`,
-  `Unverified`. `Early` means the artifact exists but is explicitly incomplete; `Deprecated` means
-  the owner now points users elsewhere; `Paper only` means no public code was found or the code is
-  explicitly unreleased; `Unverified` means we could not read the artifact yet and says so.
-- **Verified** — the date of the last verification, in `YYYY-MM-DD`, on its own line in the last cell
-  after the status. All rows in this version share one date because they were checked in one pass;
-  re-checked rows get the new date and the rest keep theirs.
 - **Links** — code, paper, docs, demo, as available, attached to the name cell. Do not link a paper
   that has no relation to the entry's claims.
+- **Status and verification date are not printed in the table.** They live in the JSON record (see
+  below). The only exceptions are the ones that change what the row *is*: a `Paper only` entry says
+  "no public code repository was found" in its description, and a `Deprecated` project says so.
+
+Status vocabulary (for the JSON record): `Active`, `Maintained`, `Early`, `Deprecated`,
+`Paper only`, `Unverified`. `Early` means the artifact exists but is explicitly incomplete;
+`Deprecated` means the owner now points users elsewhere; `Paper only` means no public code was found
+or the code is explicitly unreleased; `Unverified` means we could not read the artifact yet.
 
 A row may be followed by a short **Notes** paragraph under the table when a caveat does not fit in
 the cell. Keep notes to the caveats that change a reader's decision, not to a restatement of the
-row. Counts in the *Browse* table, the footer, and the badges are generated from the number of rows
-and must be updated with every add or removal.
+row. Counts in the *Browse* table and the badges are generated from the number of rows and must be
+updated with every add or removal.
 
 Every entry must additionally be recorded in [`data/resources.json`](data/resources.json) with the
-same name, URL, category, status and date. The JSON record also holds the full description, tags,
-verification level and evidence links. Rows and records must not drift on the shared fields.
+same name, URL, category, tags and description. The JSON record also holds the status, verification
+date, verification level and evidence links; it is the only place those are stored. Rows and records
+must not drift on the shared fields.
 
 ## 4. Sources and evidence
 
