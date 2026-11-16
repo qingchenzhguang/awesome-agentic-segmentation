@@ -1,11 +1,11 @@
 # Contributing
 
-This repository is a **private working list** during its first version. It is not accepting public
-pull requests yet. The rules below are written so that the list can be maintained consistently —
-by a human or by a maintenance agent — once the owner decides what to do with it.
+This repository is a **public working list** during its first version. It is not accepting pull
+requests yet. The rules below are written so that the list can be maintained consistently — by a
+human or by a maintenance agent — once the owner opens the contribution process.
 
-Chinese summary: 本仓库目前是私有整理阶段，收录标准、分类、条目格式、来源与维护方式见下文；
-每条都必须能被独立核验，未经验证的推断不能写成事实。
+Chinese summary: 本仓库已公开，目前仍处于第一版整理阶段，暂未开放外部贡献；收录标准、分类、
+条目格式、来源与维护方式见下文，每条都必须能被独立核验，未经验证的推断不能写成事实。
 
 ## 1. What belongs here
 

@@ -73,6 +73,17 @@ Badges are static shields.io images with fixed text, not metrics or embedded thi
 they must be updated by hand when counts change. Content was not re-verified for either pass, so
 every JSON record still carries the 2026-11-05 verification date; only the presentation changed.
 
+### Visibility and the website
+
+On 2026-11-16 the owner decided to make the repository public and publish a one-page site. The
+constraint matters: GitHub Pages on a free account only serves public repositories, and a Pages
+site is publicly reachable even when the repository is private on a paid plan, so "a private list
+with a public web page" was never an option. The site is generated from `data/resources.json` by
+`scripts/build_site.py`, written to `index.html` at the repository root, and published from the
+`main` branch; it adds no analytics, no custom domain and no embed beyond the static shields badges.
+`index.html` is generated — edit the JSON or the builder, then rebuild. No licence was added: the
+list is public to read, but reuse rights remain ungranted until the owner chooses one.
+
 ## 3. Why each entry is on the list (short evidence)
 
 Agent/applications:

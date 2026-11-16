@@ -15,7 +15,8 @@
   <a href="#maintenance">Maintenance</a> &nbsp;·&nbsp;
   <a href="#open-questions">Open questions</a> &nbsp;·&nbsp;
   <a href="#contributing">Contributing</a> &nbsp;·&nbsp;
-  <a href="#usage-notice">Usage</a>
+  <a href="#usage-notice">Usage</a> &nbsp;·&nbsp;
+  <a href="https://qingchenzhguang.github.io/awesome-agentic-segmentation/">Website</a>
 </p>
 
 ![Agents plan a segmentation task, call vision tools, inspect the returned masks and refine](assets/hero.svg)
@@ -205,6 +206,8 @@ The list is kept by reading, not by running. For each candidate:
 
 Status (`Active`, `Early`, `Paper only`, …) and the last-checked date live in that JSON record rather than in every table row, so the tables stay readable; entries that are deprecated or paper-only say so in their description. Re-checks update the date for the rows actually re-read, and changes are logged in [docs/research-notes.md](docs/research-notes.md). The current snapshot was last checked on **2026-11-05**.
 
+The [website](https://qingchenzhguang.github.io/awesome-agentic-segmentation/) is generated from the same JSON by `python scripts/build_site.py`, so a data change ships by rebuilding `index.html`.
+
 ## Open questions
 
 - **Independent evaluation.** BIABench is the only independent benchmark here; most evidence for the agent systems is author-run.
@@ -215,11 +218,11 @@ Status (`Active`, `Early`, `Paper only`, …) and the last-checked date live in 
 
 ## Contributing
 
-The repository is private and not accepting outside contributions. Inclusion criteria, category rules, the table format, source requirements and the maintenance process are in [CONTRIBUTING.md](CONTRIBUTING.md); maintenance agents should read [AGENTS.md](AGENTS.md) first. In short: a row needs a canonical link, a role, one factual summary and tags, with the evidence recorded in [data/resources.json](data/resources.json), and unknown things stay `unknown`.
+The list is public and the contribution process is not open yet. Inclusion criteria, category rules, the table format, source requirements and the maintenance process are in [CONTRIBUTING.md](CONTRIBUTING.md); maintenance agents should read [AGENTS.md](AGENTS.md) first. In short: a row needs a canonical link, a role, one factual summary and tags, with the evidence recorded in [data/resources.json](data/resources.json), and unknown things stay `unknown`.
 
 ## Usage notice
 
-**No licence has been chosen for this list.** It is a private compilation; whether it becomes public, and under which licence, has not been decided, so do not redistribute or reuse it yet. Every linked project keeps its own licence, which the reader must check before use. No third-party README, image, dataset or code is copied here, and no weights or datasets are included.
+**No licence has been chosen for this list.** The list is public to read, but no right to reuse or redistribute the compilation is granted until a licence is chosen. Every linked project keeps its own licence, which the reader must check before use. No third-party README, image, dataset or code is copied here, and no weights or datasets are included.
 
 Nothing here is medical, safety or security advice, and no entry has been clinically evaluated.
 

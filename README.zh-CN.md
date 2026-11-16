@@ -15,7 +15,8 @@
   <a href="#maintenance">维护</a> &nbsp;·&nbsp;
   <a href="#open-questions">待解问题</a> &nbsp;·&nbsp;
   <a href="#contributing">参与贡献</a> &nbsp;·&nbsp;
-  <a href="#usage-notice">使用声明</a>
+  <a href="#usage-notice">使用声明</a> &nbsp;·&nbsp;
+  <a href="https://qingchenzhguang.github.io/awesome-agentic-segmentation/">网页版</a>
 </p>
 
 ![Agent 规划分割任务、调用视觉工具、检查返回的掩码并据此决定下一步](assets/hero.svg)
@@ -229,6 +230,8 @@ Agent 可以调用的后端、MCP 服务器、skill、插件与固定管线。�
 
 状态（`Active`、`Early`、`Paper only` 等）和最后核验日期保存在这份 JSON 记录里，而不是印在每一行表格上，这样表格保持可读；已废弃或仅有论文的条目会在描述里直接说明。复查只更新真正重读过的行，并把变动记录到 [docs/research-notes.md](docs/research-notes.md)。当前快照的最后核验日期是 **2026-11-05**。
 
+[网页版](https://qingchenzhguang.github.io/awesome-agentic-segmentation/)由同一份 JSON 通过 `python scripts/build_site.py` 生成；数据改动后重新构建 `index.html` 即可同步。
+
 ## Open questions
 
 *待解问题：仍未验证或仍缺证据的地方。*
@@ -241,15 +244,15 @@ Agent 可以调用的后端、MCP 服务器、skill、插件与固定管线。�
 
 ## Contributing
 
-*参与贡献：私有阶段的收录与维护规则。*
+*参与贡献：公开清单的收录与维护规则。*
 
-仓库为私有、暂不接受外部贡献。收录标准、分类规则、表格格式、来源要求与维护流程见 [CONTRIBUTING.md](CONTRIBUTING.md)；维护 Agent 请先读 [AGENTS.md](AGENTS.md)。要点是：每行要有规范链接、角色、一句事实性概述与标签，证据记录在 [data/resources.json](data/resources.json)，不确定的内容保持 `unknown`。
+仓库已公开，但暂未开放外部贡献流程。收录标准、分类规则、表格格式、来源要求与维护流程见 [CONTRIBUTING.md](CONTRIBUTING.md)；维护 Agent 请先读 [AGENTS.md](AGENTS.md)。要点是：每行要有规范链接、角色、一句事实性概述与标签，证据记录在 [data/resources.json](data/resources.json)，不确定的内容保持 `unknown`。
 
 ## Usage notice
 
 *使用声明：许可证与免责。*
 
-**本清单尚未选择开源许可证。** 目前是私有汇编，是否公开、采用何种许可证均未决定，请勿转载或复用。每个被链接项目仍适用其自身许可证，使用前请自行确认。本仓库没有搬运第三方 README、图片、数据集或代码，也不包含权重与数据集。
+**本清单尚未选择开源许可证。** 清单公开可读，但在选定许可证之前，不授予转载或复用本汇编的权利。每个被链接项目仍适用其自身许可证，使用前请自行确认。本仓库没有搬运第三方 README、图片、数据集或代码，也不包含权重与数据集。
 
 本清单不构成医学、安全或合规建议，没有任何条目经过临床评估。
 

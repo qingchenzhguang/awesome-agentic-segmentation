@@ -6,15 +6,17 @@ and `docs/research-notes.md` before changing anything.
 ## What this repository is
 
 A curated list of **agentic image segmentation** systems plus the harnesses, tools, evaluation
-resources, examples, and papers around them. It is currently a **private** repository owned by one
-personal GitHub account. It is not public, not licensed for reuse, and not accepting outside
-contributions.
+resources, examples, and papers around them. It is a **public** repository owned by one personal
+GitHub account. It has no licence yet and is not accepting contributions. A static site at
+<https://qingchenzhguang.github.io/awesome-agentic-segmentation/> is generated from the same JSON.
 
 ## Hard constraints
 
-1. **Privacy.** Do not make the repository public, do not fork it into a public place, do not enable
-   GitHub Pages, Actions, mirrors, or third-party analytics, do not invite collaborators or teams,
-   and do not install GitHub Apps. Visibility and access decisions belong to the owner alone.
+1. **Visibility.** The repository is public and GitHub Pages serves the generated site; both were
+   enabled by the owner's decision. Do not change visibility, do not fork it into another public
+   place, do not enable mirrors, custom domains or third-party analytics, do not invite
+   collaborators or teams, and do not install GitHub Apps. Visibility and access decisions belong
+   to the owner alone.
 2. **Credentials.** Never print, commit, or copy tokens, keys, cookies, or `.env` contents. Never
    read credentials that are not needed for the immediate git operation. If authentication is
    missing, finish the local work and report the exact blocking step; do not fall back to a public
@@ -66,5 +68,7 @@ contributions.
 - Check every URL in `data/resources.json` and both READMEs (canonical repo, not a redirect).
 - Check that no token, key, `.env`, weight file, dataset, or unrelated local file is staged.
 - Stage explicit paths; do not run a blanket `git add .` over a workspace that contains other work.
+- Run `python scripts/build_site.py` whenever `data/resources.json` changes, and include the
+  regenerated `index.html` in the same commit.
 - Verify Markdown links resolve relative to the repository, and that both READMEs link to each
   other.

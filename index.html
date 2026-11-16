@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Agentic Segmentation</title>
+<meta name="description" content="A curated list of agents, harnesses, tools and resources for agentic image segmentation.">
+<style>
+:root{--bg:#ffffff;--fg:#1f2328;--muted:#59636e;--line:#d1d9e0;--card:#f6f8fa;--accent:#0969da;--accent2:#8250df}
+@media (prefers-color-scheme: dark){:root{--bg:#0d1117;--fg:#e6edf3;--muted:#9198a1;--line:#30363d;--card:#161b22;--accent:#4493f8;--accent2:#a371f7}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 8px;text-align:center}
+h1{margin:0 0 8px;font-size:clamp(32px,5vw,46px);letter-spacing:-.02em}
+.lede{margin:0 auto;max-width:720px;color:var(--muted);font-size:18px}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 0}
+.badges img{height:20px}
+nav{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:24px 0 8px;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{display:block;width:100%;max-width:1000px;margin:20px auto 8px}
+.caption{text-align:center;color:var(--muted);font-size:14px;margin:0 0 8px}
+main{padding:24px 0 64px}
+section{padding:28px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+h2{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+.intro{margin:0 0 20px;color:var(--muted);max-width:820px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card h3 a{color:var(--fg);text-decoration:none}
+.card h3 a:hover{color:var(--accent)}
+.card .paper{font-size:12px;font-weight:500;color:var(--accent);margin-left:6px;text-decoration:none}
+.card p{margin:0 0 12px;font-size:14.5px;color:var(--fg)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+.search{display:flex;gap:10px;align-items:center;margin:8px 0 0}
+.search input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font-size:15px}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.hint{color:var(--muted);font-size:13px;white-space:nowrap}
+ul.plain{padding-left:20px}
+ul.plain li{margin:0 0 10px}
+ul.plain strong{color:var(--fg)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:14px}
+footer a{color:var(--accent)}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Awesome Agentic Segmentation</h1>
+  <p class="lede">Agents that plan segmentation, call vision tools, inspect masks, and refine. Plus the harnesses, integrations, benchmarks and papers around them.</p>
+  <p class="badges">
+    <img src="https://img.shields.io/badge/entries-33-0969da" alt="33 entries">
+    <img src="https://img.shields.io/badge/domains-5-1a7f37" alt="5 imaging domains">
+    <img src="https://img.shields.io/badge/licence-not%20chosen-bf8700" alt="No licence chosen">
+  </p>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#agents">Agents</a>
+    <a href="#harnesses">Harnesses</a>
+    <a href="#tools">Tools</a>
+    <a href="#evaluation">Evaluation</a>
+    <a href="#examples">Examples</a>
+    <a href="#papers">Papers</a>
+    <a href="#related">Related</a>
+    <a href="#patterns">Patterns</a>
+    <a href="#maintenance">Maintenance</a>
+    <a href="https://github.com/qingchenzhguang/awesome-agentic-segmentation">GitHub</a>
+    <a href="https://github.com/qingchenzhguang/awesome-agentic-segmentation/blob/main/README.zh-CN.md">中文</a>
+  </nav>
+</header>
+<img class="hero" src="assets/hero.svg" alt="Agent loop: plan, call tools, inspect mask, refine">
+<p class="caption">Agents plan a segmentation task, call vision tools, inspect the returned mask and feed what they see into the next step.</p>
+<main>
+<section id="overview">
+<h2>Overview</h2>
+<p class="intro">A curated list of agents, harnesses, tools and resources for <strong>agentic image segmentation</strong>: systems that plan segmentation tasks, use vision tools, inspect masks and refine results, plus the integrations, benchmarks and workflows around them.</p>
+<p class="intro">A project is in scope when all three hold: an agent <strong>decides</strong> something (which tool, which prompt, whether to stop), it <strong>calls</strong> a segmentation tool whose artifact it receives, and that artifact <strong>feeds back</strong> into the next action. A name containing &ldquo;agent&rdquo; is not evidence of agency.</p>
+<p class="intro">This is not a catalogue of segmentation models, datasets or papers. Model backends appear only where an agent can call them; plain models are linked from <a href="#related">Related</a>.</p>
+<div class="search"><input id="q" type="search" placeholder="Filter by name, description or domain…" aria-label="Filter entries"><span class="hint" id="count"></span></div>
+</section>
+<section id="agents">
+<h2>Agents &amp; Applications</h2>
+<p class="intro">Complete systems that decide what to do next, call a segmenter or an editor, look at the result and continue.</p>
+<div class="grid">
+      <article class="card" data-text="vasa training-free vision-harnessing agent for open ad-hoc segmentation: a vlm coordinates sam 3 through planning, mask editing, scrutiny and error recovery while keeping one working mask persistent, inspectable and editable, and each run saves a trace viewer plus the tool-call history. natural images">
+        <h3><a href="https://github.com/Wayne2Wang/VASA">VASA</a> <a class="paper" href="https://arxiv.org/abs/2605.19410">paper</a></h3>
+        <p>Training-free vision-harnessing agent for open ad-hoc segmentation: a VLM coordinates SAM 3 through planning, mask editing, scrutiny and error recovery while keeping one working mask persistent, inspectable and editable, and each run saves a trace viewer plus the tool-call history.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="medsam-agent qwen3-vl agent trained with multi-turn reinforcement learning to choose positive/negative points, boxes or an early stop for a medical segmenter (medsam2, sam 2.1 or imisnet), with single-image and batch inference scripts plus an rl training recipe. medical">
+        <h3><a href="https://github.com/CUHK-AIM-Group/MedSAM-Agent">MedSAM-Agent</a> <a class="paper" href="https://arxiv.org/abs/2602.03320">paper</a></h3>
+        <p>Qwen3-VL agent trained with multi-turn reinforcement learning to choose positive/negative points, boxes or an early stop for a medical segmenter (MedSAM2, SAM 2.1 or IMISNet), with single-image and batch inference scripts plus an RL training recipe.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Points</span><span class="tag">Boxes</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="medsegagent multi-agent autogen pipeline that maps a free-text medical segmentation request to dataset-specific nnu-net models and label ids through coarse-to-fine query filtering; a totalsegagent branch adds a runnable ct/mr segmentation service and web viewer. medical">
+        <h3><a href="https://github.com/uni-medical/MedSegAgent">MedSegAgent</a> </h3>
+        <p>Multi-agent AutoGen pipeline that maps a free-text medical segmentation request to dataset-specific nnU-Net models and label IDs through coarse-to-fine query filtering; a TotalSegAgent branch adds a runnable CT/MR segmentation service and web viewer.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="segagent mllm trained to imitate human annotator trajectories: it issues a sequence of interactions to an interactive segmentor to build and refine a mask over several steps, and the weights, inference code and hlmat trajectory dataset are released. natural images">
+        <h3><a href="https://github.com/aim-uofa/SegAgent">SegAgent</a> <a class="paper" href="https://arxiv.org/abs/2503.08625">paper</a></h3>
+        <p>MLLM trained to imitate human annotator trajectories: it issues a sequence of interactions to an interactive segmentor to build and refine a mask over several steps, and the weights, inference code and HLMAT trajectory dataset are released.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">Interactive</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="voxelsage self-hosted abdominal ct workspace where a natural-language agent drives imaging skills — segmentation through vista3d or totalsegmentator, quantitative measurements, key-slice selection and interactive 3d reconstruction — behind a web ui and a documented skills api. medical">
+        <h3><a href="https://github.com/ZJUMAI/VoxelSage">VoxelSage</a> <a class="paper" href="https://arxiv.org/abs/2609.37648">paper</a></h3>
+        <p>Self-hosted abdominal CT workspace where a natural-language agent drives imaging skills — segmentation through VISTA3D or TotalSegmentator, quantitative measurements, key-slice selection and interactive 3D reconstruction — behind a web UI and a documented Skills API.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">Interactive</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="gencellagent training-free multi-agent system for cellular microscopy that routes each image to specialist or generalist segmenters (cellpose, µsam, ernet, mitonet, lisa, seggpt) in a plan–execute–evaluate loop, with vlm-based quality scoring, human corrections and remembered configurations. microscopy">
+        <h3><a href="https://github.com/yuxi120407/GenCELLAgent">GenCellAgent</a> </h3>
+        <p>Training-free multi-agent system for cellular microscopy that routes each image to specialist or generalist segmenters (Cellpose, µSAM, ERNet, MitoNet, LISA, SegGPT) in a plan–execute–evaluate loop, with VLM-based quality scoring, human corrections and remembered configurations.</p>
+        <div class="tags"><span class="tag">Microscopy</span><span class="tag">Text</span><span class="tag">Interactive</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="ask-to-mask electron-microscopy organelle segmentation with an agentic refinement loop: a vision-language model writes the prompt, a generator draws the mask, and a vlm critic drives further iterations; sam 3 point prompts and majority voting over orthogonal planes produce 3d masks. microscopy">
+        <h3><a href="https://github.com/janelia-cellmap/ask-to-mask">ask-to-mask</a> </h3>
+        <p>Electron-microscopy organelle segmentation with an agentic refinement loop: a vision-language model writes the prompt, a generator draws the mask, and a VLM critic drives further iterations; SAM 3 point prompts and majority voting over orthogonal planes produce 3D masks.</p>
+        <div class="tags"><span class="tag">Microscopy</span><span class="tag">Text</span><span class="tag">Points</span><span class="tag">2D</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="farmseeker remote-sensing farmland segmentation agent that detects ambiguous regions, retrieves extra spatio-temporal imagery, reasons across dates and refines the mask with sam 2.1; the accompanying gsfs-bench is described as a global-scale farmland segmentation benchmark that supports reasoning–querying. remote sensing">
+        <h3><a href="https://github.com/WithoutOcean/FarmSeeker">FarmSeeker</a> </h3>
+        <p>Remote-sensing farmland segmentation agent that detects ambiguous regions, retrieves extra spatio-temporal imagery, reasons across dates and refines the mask with SAM 2.1; the accompanying GSFS-Bench is described as a global-scale farmland segmentation benchmark that supports reasoning–querying.</p>
+        <div class="tags"><span class="tag">Remote sensing</span><span class="tag">Text</span><span class="tag">Masks</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="refer-agent collaborative multi-agent system for referring video object segmentation, where reasoning and reflection stages build and check the target description before sam 2 propagates masks through the video. video">
+        <h3><a href="https://github.com/iSEE-Laboratory/Refer-Agent">Refer-Agent</a> <a class="paper" href="https://arxiv.org/abs/2602.03595">paper</a></h3>
+        <p>Collaborative multi-agent system for referring video object segmentation, where reasoning and reflection stages build and check the target description before SAM 2 propagates masks through the video.</p>
+        <div class="tags"><span class="tag">Video</span><span class="tag">Text</span><span class="tag">Video</span></div>
+      </article>
+      <article class="card" data-text="agentic-sam local ultrasound assistant that uses langgraph tool orchestration over sam 3, medical-sam3 and medsam2 to segment a ptmc bounding box, track it frame by frame through rfa video and post live tracking notes. medical">
+        <h3><a href="https://github.com/mdialameh/Agentic-SAM">Agentic-SAM</a> </h3>
+        <p>Local ultrasound assistant that uses LangGraph tool orchestration over SAM 3, Medical-SAM3 and MedSAM2 to segment a PTMC bounding box, track it frame by frame through RFA video and post live tracking notes.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">Boxes</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="mmedagent multimodal medical agent trained to select and call specialist tools, including medsam for box-prompted segmentation and grounding dino plus medsam for text-prompted segmentation, across modalities that include mri, ct, x-ray, histology and gross pathology. medical">
+        <h3><a href="https://github.com/Wangyixinxin/MMedAgent">MMedAgent</a> <a class="paper" href="https://aclanthology.org/2024.findings-emnlp.510/">paper</a></h3>
+        <p>Multimodal medical agent trained to select and call specialist tools, including MedSAM for box-prompted segmentation and Grounding DINO plus MedSAM for text-prompted segmentation, across modalities that include MRI, CT, X-ray, histology and gross pathology.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">Boxes</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="change-agent llm agent built on lagent for bi-temporal remote-sensing images: it runs a multi-level change interpretation model to obtain change masks and descriptions, then answers follow-up questions about the changes. remote sensing">
+        <h3><a href="https://github.com/Chen-Yang-Liu/Change-Agent">Change-Agent</a> <a class="paper" href="https://ieeexplore.ieee.org/document/10591792">paper</a></h3>
+        <p>LLM agent built on Lagent for bi-temporal remote-sensing images: it runs a multi-level change interpretation model to obtain change masks and descriptions, then answers follow-up questions about the changes.</p>
+        <div class="tags"><span class="tag">Remote sensing</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="lore interactive agentic framework for 3d tumor segmentation: a policy observes the current mask, error residuals and shape descriptors, chooses which correction to request (click, box, scribble) and decides when to stop; the agent code is released, datasets and weights are not. medical">
+        <h3><a href="https://github.com/nourhanb/LORE-Interactive-Agentic-Segmentation-Framework-">LORE</a> </h3>
+        <p>Interactive agentic framework for 3D tumor segmentation: a policy observes the current mask, error residuals and shape descriptors, chooses which correction to request (click, box, scribble) and decides when to stop; the agent code is released, datasets and weights are not.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Interactive</span><span class="tag">3D</span></div>
+      </article>
+</div>
+</section>
+<section id="harnesses">
+<h2>Harnesses &amp; Frameworks</h2>
+<p class="intro">Reusable execution machinery: planning, code generation and tests, presets, traces, budgets, retries and evaluation splits.</p>
+<div class="grid">
+      <article class="card" data-text="visionagent library that plans a vision task, generates runnable python that calls a large tool set — including sam 2-based instance segmentation and video tracking — then tests the generated code and iterates until its test case passes. the repository description now marks the project deprecated in favour of landingai&#x27;s agentic document extraction. natural images">
+        <h3><a href="https://github.com/landing-ai/vision-agent">VisionAgent</a> </h3>
+        <p>Library that plans a vision task, generates runnable Python that calls a large tool set — including SAM 2-based instance segmentation and video tracking — then tests the generated code and iterates until its test case passes. The repository description now marks the project deprecated in favour of LandingAI&#x27;s Agentic Document Extraction.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="agentic-segmentation research harness in which a general coding agent drives nninteractive through a small set of seg_* tools to segment 3d mri tumours; versioned harness presets, per-run traces, evaluation splits and a reproducible experiment log are part of the repository. medical">
+        <h3><a href="https://github.com/sameed-khan/agentic-segmentation">agentic-segmentation</a> </h3>
+        <p>Research harness in which a general coding agent drives nnInteractive through a small set of seg_* tools to segment 3D MRI tumours; versioned harness presets, per-run traces, evaluation splits and a reproducible experiment log are part of the repository.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Interactive</span><span class="tag">3D</span></div>
+      </article>
+</div>
+</section>
+<section id="tools">
+<h2>Tools &amp; Integrations</h2>
+<p class="intro">Backends, MCP servers, skills, plugins and fixed pipelines an agent can call. The host and the backend are the point.</p>
+<div class="grid">
+      <article class="card" data-text="sam 3 meta&#x27;s promptable concept segmentation model, released with inference and fine-tuning code and a bundled agent package in which a multimodal llm calls tools such as segment_phrase, examine_each_mask, select_masks and report_no_mask over a bounded number of turns. natural images">
+        <h3><a href="https://github.com/facebookresearch/sam3">SAM 3</a> </h3>
+        <p>Meta&#x27;s promptable concept segmentation model, released with inference and fine-tuning code and a bundled agent package in which a multimodal LLM calls tools such as segment_phrase, examine_each_mask, select_masks and report_no_mask over a bounded number of turns.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">Points</span><span class="tag">Boxes</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="nninteractive agent mcp server plus agent skill that gives a host agent (claude code, codex or another mcp client) tools to prompt nninteractive with scribbles, boxes and points, inspect 3d renders, undo and correct; a web demo and an agent benchmark are included. medical microscopy">
+        <h3><a href="https://github.com/MIC-DKFZ/nninteractive-agent">nnInteractive Agent</a> <a class="paper" href="https://arxiv.org/abs/2610.31080">paper</a></h3>
+        <p>MCP server plus agent skill that gives a host agent (Claude Code, Codex or another MCP client) tools to prompt nnInteractive with scribbles, boxes and points, inspect 3D renders, undo and correct; a web demo and an agent benchmark are included.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Microscopy</span><span class="tag">Interactive</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="sam 3 segmentation skill agent skill that wraps sam 3 behind staged cli commands — find, click, everything, then audit, select, review-sheets, refine and export — so a host agent can review proposals, record reversible decisions and export png or coco rle masks. natural images">
+        <h3><a href="https://github.com/lillyguisnet/sam3-segmentation">SAM 3 Segmentation Skill</a> </h3>
+        <p>Agent skill that wraps SAM 3 behind staged CLI commands — find, click, everything, then audit, select, review-sheets, refine and export — so a host agent can review proposals, record reversible decisions and export PNG or COCO RLE masks.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">Points</span><span class="tag">Boxes</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="comfyui segmentation agent comfyui node that asks a vision llm to break a character description into sam 3 phrases, renders numbered mask candidates back to the model, and iterates until the model accepts a subset. natural images">
+        <h3><a href="https://github.com/adambarbato/ComfyUI-Segmentation-Agent">ComfyUI Segmentation Agent</a> </h3>
+        <p>ComfyUI node that asks a vision LLM to break a character description into SAM 3 phrases, renders numbered mask candidates back to the model, and iterates until the model accepts a subset.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="grounded sam 2 demo pipelines that chain grounding dino or florence-2 with sam 2 for open-vocabulary image masks and video object tracking; a fixed pipeline rather than an agent, but a common segmentation backend in agent stacks. natural images video">
+        <h3><a href="https://github.com/IDEA-Research/Grounded-SAM-2">Grounded SAM 2</a> </h3>
+        <p>Demo pipelines that chain Grounding DINO or Florence-2 with SAM 2 for open-vocabulary image masks and video object tracking; a fixed pipeline rather than an agent, but a common segmentation backend in agent stacks.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Video</span><span class="tag">Text</span><span class="tag">2D</span><span class="tag">Video</span></div>
+      </article>
+      <article class="card" data-text="proofreader-mcp mcp server for image-centric proofreading of segmentation objects: it stores per-object screenshots as resources, ranks likely overmerge, oversegment, junk or misclassified cases for the host llm to judge, and records human verdicts without running any model itself. microscopy">
+        <h3><a href="https://github.com/janelia-cellmap/proofreader-mcp">proofreader-mcp</a> </h3>
+        <p>MCP server for image-centric proofreading of segmentation objects: it stores per-object screenshots as resources, ranks likely overmerge, oversegment, junk or misclassified cases for the host LLM to judge, and records human verdicts without running any model itself.</p>
+        <div class="tags"><span class="tag">Microscopy</span><span class="tag">No prompt</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="gfm-mcp mcp server that exposes geospatial foundation model inference as tools — building extraction, water segmentation, object detection, change detection, zero-shot scene classification and embeddings — so an llm agent can call remote-sensing segmentation from cpu. remote sensing">
+        <h3><a href="https://github.com/yuyi1008688/gfm-mcp">gfm-mcp</a> </h3>
+        <p>MCP server that exposes geospatial foundation model inference as tools — building extraction, water segmentation, object detection, change detection, zero-shot scene classification and embeddings — so an LLM agent can call remote-sensing segmentation from CPU.</p>
+        <div class="tags"><span class="tag">Remote sensing</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="mcp-slicer mcp server that lets a client drive 3d slicer: list mrml nodes, execute python inside the slicer environment and capture screenshots of slice and 3d views, which supplies the visual feedback step of a react-style loop. medical">
+        <h3><a href="https://github.com/zhaoyouj/mcp-slicer">MCP-Slicer</a> </h3>
+        <p>MCP server that lets a client drive 3D Slicer: list MRML nodes, execute Python inside the Slicer environment and capture screenshots of slice and 3D views, which supplies the visual feedback step of a ReAct-style loop.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">No prompt</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="bioimage-agent napari plugin that exposes the viewer over mcp through a socket server, letting external agents inspect images and call napari&#x27;s public api from a separate process. microscopy">
+        <h3><a href="https://github.com/llnl/bioimage-agent">BioImage-Agent</a> </h3>
+        <p>napari plugin that exposes the viewer over MCP through a socket server, letting external agents inspect images and call napari&#x27;s public API from a separate process.</p>
+        <div class="tags"><span class="tag">Microscopy</span><span class="tag">No prompt</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="medmcp on-premise agentic workspace for medical imaging: a locally served model plans the work, installable tool stacks do the computation, and a viewer shows images with segmentation overlays; by default nothing leaves the machine. medical">
+        <h3><a href="https://github.com/medmcp/medmcp">MedMCP</a> </h3>
+        <p>On-premise agentic workspace for medical imaging: a locally served model plans the work, installable tool stacks do the computation, and a viewer shows images with segmentation overlays; by default nothing leaves the machine.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">3D</span></div>
+      </article>
+</div>
+</section>
+<section id="evaluation">
+<h2>Evaluation &amp; Benchmarks</h2>
+<p class="intro">What is measured matters: a script that runs, a model judging its own mask and accuracy against annotation are different things.</p>
+<div class="grid">
+      <article class="card" data-text="biabench benchmark of 16 real bioimage-analysis tasks reconstructed from published studies, scored both on the produced result and on how the analysis was carried out; it ships adapters for coding agents such as claude code, codex and deepseek harness behind a single run(instruction, input_dir, output_dir) interface. microscopy">
+        <h3><a href="https://github.com/BIABench/BIABench">BIABench</a> <a class="paper" href="https://arxiv.org/abs/2609.34274">paper</a></h3>
+        <p>Benchmark of 16 real bioimage-analysis tasks reconstructed from published studies, scored both on the produced result and on how the analysis was carried out; it ships adapters for coding agents such as Claude Code, Codex and DeepSeek Harness behind a single run(instruction, input_dir, output_dir) interface.</p>
+        <div class="tags"><span class="tag">Microscopy</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+</div>
+<p class="intro" style="margin-top:24px">Benchmarks released inside listed projects:</p>
+<ul class="plain">
+<li><a href="https://github.com/MIC-DKFZ/nninteractive-agent/blob/master/benchmark/README.md">nnInteractive Agent benchmark</a> — Mean Dice of Claude Code and Codex driving nnInteractive on 14 public CT, MRI, PET and micro-CT images and 51 named targets, compared with single-click prompting and a text-only 3D model. <span class="tag">nnInteractive Agent</span></li>
+<li><a href="https://github.com/aim-uofa/SegAgent/blob/main/evaltools/eval.md">HLMAT evaluation</a> — Mask quality after human-like click trajectories, evaluated with the repository&#x27;s IoU script on RefCOCO+ style splits. <span class="tag">SegAgent</span></li>
+<li><a href="https://github.com/sameed-khan/agentic-segmentation/tree/integrate/eval">MSTT-199 and BEAMSTER splits</a> — Coding-agent segmentation of soft-tissue tumours and brain metastases in 3D MRI, with per-run scores and trajectories. <span class="tag">agentic-segmentation (coding-agent harness)</span></li>
+<li><a href="https://github.com/WithoutOcean/FarmSeeker">GSFS-Bench</a> — Farmland segmentation with reasoning-and-querying over extra spatio-temporal imagery; dataset not yet released at verification time. <span class="tag">FarmSeeker</span></li>
+<li><a href="https://github.com/uni-medical/MedSegAgent/blob/main/evaluate.py">MedSegAgent model-selection test set</a> — Dataset-level hit rate of the routing pipeline, not mask Dice. <span class="tag">MedSegAgent</span></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples &amp; Tutorials</h2>
+<p class="intro">Runnable walkthroughs. Each belongs to a project listed above; it is a way in, not a separate project.</p>
+<div class="grid">
+      <article class="card" data-text="sam 3 agent notebook official notebook that runs the sam 3 agent end to end: it builds sam 3, points it at a vllm-served qwen3-vl, and calls run_single_image_inference on a text query, writing the prediction, a rendered mask and the agent history. natural images">
+        <h3><a href="https://github.com/facebookresearch/sam3/blob/main/examples/sam3_agent.ipynb">SAM 3 Agent notebook</a> </h3>
+        <p>Official notebook that runs the SAM 3 agent end to end: it builds SAM 3, points it at a vLLM-served Qwen3-VL, and calls run_single_image_inference on a text query, writing the prediction, a rendered mask and the agent history.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="vasa demo and trace viewer three ready-made queries on the bundled example image with their recorded outputs; opening trace.html replays planning, tool calls and mask edits step by step without running anything. natural images">
+        <h3><a href="https://github.com/Wayne2Wang/VASA/tree/main/outputs">VASA demo and trace viewer</a> </h3>
+        <p>Three ready-made queries on the bundled example image with their recorded outputs; opening trace.html replays planning, tool calls and mask edits step by step without running anything.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="nninteractive agent web demo browser demo that runs the same mcp tools and skill behind a chat with live 2d/3d views, for showing agent-driven 3d annotation to people who have no agent installed. medical">
+        <h3><a href="https://github.com/MIC-DKFZ/nninteractive-agent#web-demo">nnInteractive Agent web demo</a> </h3>
+        <p>Browser demo that runs the same MCP tools and skill behind a chat with live 2D/3D views, for showing agent-driven 3D annotation to people who have no agent installed.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Interactive</span><span class="tag">3D</span></div>
+      </article>
+</div>
+</section>
+<section id="papers">
+<h2>Papers &amp; Surveys</h2>
+<p class="intro">Research that directly informs segmentation agents. Where a project has a card, its paper is linked there instead.</p>
+<div class="grid">
+      <article class="card" data-text="rsagent agentic multimodal llm for text-guided segmentation that queries a segmentation toolbox, observes visual feedback and revises its spatial hypothesis over multiple turns; trained with cold-start sft followed by agentic rl. no public code repository was found at verification time. natural images">
+        <h3><a href="https://arxiv.org/abs/2512.24023">RSAgent</a> </h3>
+        <p>Agentic multimodal LLM for text-guided segmentation that queries a segmentation toolbox, observes visual feedback and revises its spatial hypothesis over multiple turns; trained with cold-start SFT followed by agentic RL. No public code repository was found at verification time.</p>
+        <div class="tags"><span class="tag">Natural images</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="rsure-agent remote-sensing agent that verifies tool observations before using them in later reasoning to reduce error propagation; the repository publishes the site, demo videos and paper, while the core tool-calling and verification code is still listed as unreleased. remote sensing">
+        <h3><a href="https://github.com/AIRS101/RSure-Agent">RSure-Agent</a> <a class="paper" href="https://arxiv.org/abs/2610.04836">paper</a></h3>
+        <p>Remote-sensing agent that verifies tool observations before using them in later reasoning to reduce error propagation; the repository publishes the site, demo videos and paper, while the core tool-calling and verification code is still listed as unreleased.</p>
+        <div class="tags"><span class="tag">Remote sensing</span><span class="tag">Text</span><span class="tag">2D</span></div>
+      </article>
+      <article class="card" data-text="voxelprompt vision-language agent for 3d medical images that emits executable instructions to a frozen segmentation network, adapting language prompts to volumetric tasks end to end. no public code repository was found at verification time. medical">
+        <h3><a href="https://arxiv.org/abs/2410.08397">VoxelPrompt</a> </h3>
+        <p>Vision-language agent for 3D medical images that emits executable instructions to a frozen segmentation network, adapting language prompts to volumetric tasks end to end. No public code repository was found at verification time.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">3D</span></div>
+      </article>
+      <article class="card" data-text="seer vision-language reasoning model for free-text 3d medical segmentation that grounds clinical language in image evidence and emits an executable target specification for a segmentation backbone; checkpoints, inference code and an evaluation split are released. medical">
+        <h3><a href="https://github.com/Ztrura/SEER">SEER</a> <a class="paper" href="https://arxiv.org/abs/2603.08215">paper</a></h3>
+        <p>Vision-language reasoning model for free-text 3D medical segmentation that grounds clinical language in image evidence and emits an executable target specification for a segmentation backbone; checkpoints, inference code and an evaluation split are released.</p>
+        <div class="tags"><span class="tag">Medical</span><span class="tag">Text</span><span class="tag">3D</span></div>
+      </article>
+</div>
+</section>
+<section id="related">
+<h2>Related Resources</h2>
+<p class="intro">Useful, but outside the curation boundary.</p>
+<ul class="plain">
+<li><a href="https://github.com/mrgloom/awesome-semantic-segmentation">awesome-semantic-segmentation</a> — Classic segmentation model, dataset and tool index; useful for the model layer this list deliberately does not catalogue.</li>
+<li><a href="https://github.com/liliu-avril/Awesome-Segment-Anything">Awesome-Segment-Anything</a> — Promptable-segmentation paper collection, including SAM-family work and interactive segmentation.</li>
+<li><a href="https://github.com/Nanboy-Ronan/awesome-medical-imaging-agents">awesome-medical-imaging-agents</a> — Broad index of medical imaging agents with a dedicated segmentation-and-annotation section.</li>
+<li><a href="https://github.com/OpenEnvision/Awesome-Multimodal-Agent">Awesome-Multimodal-Agent</a> — Multimodal agent papers; adjacent to tool-using segmentation agents.</li>
+<li><a href="https://github.com/facebookresearch/sam2">SAM 2</a> — Promptable image and video segmentation backend used by several agent systems above.</li>
+<li><a href="https://github.com/MIC-DKFZ/nnInteractive">nnInteractive</a> — 3D interactive segmentation framework behind the nnInteractive Agent entry.</li>
+<li><a href="https://github.com/bowang-lab/MedSAM2">MedSAM2</a> — Medical promptable segmentation and tracking model used as a backend by medical agents here.</li>
+<li><a href="https://github.com/JIA-Lab-research/Seg-Zero">Seg-Zero</a> — Reasoning-chain segmentation model with a separate mask decoder; no tool loop, so it is linked rather than curated as an agent.</li>
+<li><a href="https://github.com/mbzuai-oryx/ThinkGeo">ThinkGeo</a> — Benchmark for tool-augmented remote-sensing agents; not segmentation-scored, so it is linked rather than listed as a segmentation benchmark.</li>
+</ul>
+</section>
+<section id="patterns">
+<h2>Patterns</h2>
+<p class="intro">Five things the entries have in common — and where they do not.</p>
+<ul class="plain">
+<li><strong>Two shapes.</strong> Either a trained model that emits prompts or actions (SegAgent, MedSAM-Agent, MMedAgent, LORE, RSAgent), or an external coding agent that drives tools through MCP, skills or a node (nnInteractive Agent, SAM 3 Segmentation Skill, ComfyUI Segmentation Agent, the MCP servers).</li>
+<li><strong>Feedback is mostly visual.</strong> 3D renders, slice screenshots, review sheets and VLM critiques are the common loop; a few systems act on mask geometry or a scalar state instead (MedSAM-Agent&#x27;s updated mask, LORE&#x27;s error residuals).</li>
+<li><strong>Medical imaging dominates.</strong> Six of the 13 agent entries and three of the 10 tools are medical; remote sensing and microscopy contribute distinct patterns — spatio-temporal retrieval and multi-agent tool routing.</li>
+<li><strong>Evaluation is thin.</strong> One independent benchmark (BIABench). Everything else reports author-run numbers, and several repositories ship no evaluation script at all.</li>
+<li><strong>Industrial inspection is missing.</strong> Searches returned segmentation models and anomaly detectors, but no agent with an inspectable tool loop, so the section is absent rather than padded.</li>
+</ul>
+</section>
+<section id="maintenance">
+<h2>Maintenance</h2>
+<p class="intro">The list is kept by reading, not by running. For each candidate: discover through GitHub and the linked awesome lists; read the project's own README and, where the entry claims a loop, the source files that implement it; then record the entry in <a href="https://github.com/qingchenzhguang/awesome-agentic-segmentation/blob/main/data/resources.json">data/resources.json</a>. Nothing is cloned, installed or executed.</p>
+<p class="intro">Status and the last-checked date live in that JSON record rather than on every card, so the page stays readable; deprecated or paper-only entries say so in their description. The current snapshot was last checked on <strong>2026-11-05</strong>.</p>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<p><strong>No licence has been chosen for this list.</strong> Every linked project keeps its own licence, which the reader must check before use. No third-party README, image, dataset or code is copied here. Nothing here is medical, safety or security advice.</p>
+<p>Source: <a href="https://github.com/qingchenzhguang/awesome-agentic-segmentation">github.com/qingchenzhguang/awesome-agentic-segmentation</a> · data in <a href="https://github.com/qingchenzhguang/awesome-agentic-segmentation/blob/main/data/resources.json">data/resources.json</a></p>
+</div>
+</footer>
+</div>
+<script>
+(function(){
+  var input = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var count = document.getElementById('count');
+  function update(){
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var hit = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
+      card.classList.toggle('hidden', !hit);
+      if (hit) shown++;
+    });
+    count.textContent = shown + ' / ' + cards.length;
+  }
+  input.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>
